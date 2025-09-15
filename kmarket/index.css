@@ -1,98 +1,171 @@
 body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; 
-    /* */
-    
-
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-  
+
 header {
-    /* */
-
-
-
-    height: 200px;
-    background: rgb(241, 191, 193);
+  padding-top: 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
 }
-  
+
+
+
+.top-header {
+  max-width: 1250px;
+  margin: 0 auto;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-center {
+  order: 2;
+  margin-right: 15px;
+}
+
+.header-right {
+  order: 3;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.header-center form {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+
+.header-center input {
+  border: none;
+  outline: none;
+  width: 250px;
+  font-size: 14px;
+}
+
+.header-center button {
+  background-color: transparent;
+  border: 0;
+  height: 25px;
+  padding-top: 2px;
+  cursor: pointer;
+}
+
+.header-center button img {
+  width: 20px;
+}
+
+.header-right .icon {
+  width: 25px;
+  cursor: pointer;
+}
+
+.bottom-header {
+  max-width: 1250px;
+  margin: 0 auto;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+}
+
+.bottom-header .header-left a {
+  margin-left: 7px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.bottom-header .header-right {
+  gap: 5px;
+}
+
+.login-menu {
+  font-size: 12px;
+  color: #555;
+}
+
+.login-menu a {
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+}
+
 footer {
-    /* */
-
-
-
-    height: 200px;
-    background: rgb(189, 197, 245);
+  height: 200px;
+  background: rgb(189, 197, 245);
 }
 
 .container {
-    flex: 1; 
-    display: flex; /* main + aside 나란히 */
-    /* */
-
+  position: relative;
+  flex: 1;
+  width: 100%;
 }
-  
+
 main {
-    flex: 1; 
-    /* 길면 줄바꿈하는 속성 */
-    word-break: break-all;
-    /* */
-
-
-    background: lightgray;
+  background: lightgray;
+  word-break: break-all;
 }
-
-
-
 
 aside {
-    display: flex;
-    flex-direction: column;
-    word-break: break-all;
-    flex-shrink: 0;
-    /* */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  margin-right: 625px;
+  background: #fdefef;
+}
 
-
-    width: 250px; 
-    background: #eee;
+.wrapper {
+  max-width: 1250px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .mainmenu {
-    cursor: pointer;
-    white-space: normal;  
-    word-break: break-all;
-    /* */
-
-    padding: 10px;
-    text-align: left;
-    border: none;
-    background: #ccc;
-    width: 100%;
+  cursor: pointer;
+  white-space: normal;
+  word-break: break-all;
+  padding: 10px;
+  text-align: left;
+  border: none;
+  background: #f7eded;
+  width: 100%;
 }
 
 .submenu {
-    display: none; 
-    flex-direction: column;
-    white-space: normal;  
-    word-break: break-all;
-    /* */
-
-    background: #ddd;
+  display: none;
+  flex-direction: column;
+  white-space: normal;
+  word-break: break-all;
+  background: #ddd;
 }
 
 .submenu a {
-    /* */
-
-
-    padding: 8px 15px;
-    text-decoration: none;
-    color: black;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: black;
 }
 
 .submenu a:hover {
-    /* */
-
-
-    background: #bbb;
+  background: #bbb;
 }
