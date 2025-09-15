@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    /* */
+    
+
+}
+  
+header {
+    /* */
+
+
+
+    height: 200px;
+    background: rgb(241, 191, 193);
+}
+  
+footer {
+    /* */
+
+
+
+    height: 200px;
+    background: rgb(189, 197, 245);
+}
+
+.container {
+    flex: 1; 
+    display: flex; /* main + aside 나란히 */
+    /* */
+
+}
+  
+main {
+    flex: 1; 
+    /* 길면 줄바꿈하는 속성 */
+    word-break: break-all;
+    /* */
+
+
+    background: lightgray;
+}
+
+
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    word-break: break-all;
+    flex-shrink: 0;
+    /* */
+
+
+    width: 250px; 
+    background: #eee;
+}
+
+.mainmenu {
+    cursor: pointer;
+    white-space: normal;  
+    word-break: break-all;
+    /* */
+
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background: #ccc;
+    width: 100%;
+}
+
+.submenu {
+    display: none; 
+    flex-direction: column;
+    white-space: normal;  
+    word-break: break-all;
+    /* */
+
+    background: #ddd;
+}
+
+.submenu a {
+    /* */
+
+
+    padding: 8px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.submenu a:hover {
+    /* */
+
+
+    background: #bbb;
+}
