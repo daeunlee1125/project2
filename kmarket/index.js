@@ -1,4 +1,15 @@
 
+$(document).ready(function(){
+    $('.bxslider').bxSlider({
+      auto: true,       // 자동 슬라이드
+      pause: 4000,      // 대기시간 (ms)
+      speed: 500,       // 전환 속도
+      pager: true,      // 하단 동그라미 네비게이션
+      controls: true,    // 이전/다음 버튼
+      adaptiveHeight: true
+    });
+  });
+
 
 
 // 전체 카테고리 버튼 토글
@@ -7,6 +18,12 @@ const box = document.getElementById("categoryBox");
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
+  const currentColor = getComputedStyle(btn).color; // 계산된 색상 (rgb 값 반환)
+  if (currentColor === "rgb(186, 29, 29)") {        // #ba1d1d = rgb(186, 29, 29)
+    btn.style.color = "black";
+  } else {
+    btn.style.color = "#ba1d1d";
+  }
   box.style.display = (box.style.display === "flex") ? "none" : "flex";
 });
 
