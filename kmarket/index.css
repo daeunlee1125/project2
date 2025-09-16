@@ -6,6 +6,7 @@ body {
 }
 
 header {
+  
   padding-top: 20px;
   background: white;
   border-bottom: 1px solid #ddd;
@@ -83,7 +84,6 @@ header {
   gap: 15px;
   padding: 0 20px;
   box-sizing: border-box;
-  border-top: 1px solid #eee;
 }
 
 .bottom-header .header-left a {
@@ -110,8 +110,29 @@ header {
 }
 
 footer {
-  height: 200px;
-  background: rgb(189, 197, 245);
+  height: 250px;
+  background: rgb(255, 255, 255);
+}
+
+.top-footer{
+  border: 1px solid #555;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.bottom-footer{
+  display: flex;
+  text-align: center;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+
+.bottom-footer .footer-left{
+  flex: 1;
+}
+.bottom-footer .footer-right{
+  flex: 1;
 }
 
 .container {
