@@ -1,0 +1,89 @@
+/* 문화 소개 */
+.culture-intro {
+  padding: 80px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.culture-intro h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.culture-intro p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* 문화 카드 */
+.culture-values {
+  background: #fafafa;
+  padding: 80px 20px;
+}
+
+.culture-values .grid {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 🔹 2열 고정 */
+  gap: 30px;
+}
+
+.culture-values .card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.culture-values .card:hover {
+  transform: translateY(-5px);
+}
+
+.culture-values .card img {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.culture-values .card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.culture-values .card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 강조 섹션 */
+.culture-highlight {
+  background: #d9ecfd;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.culture-highlight h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.culture-highlight a {
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.culture-highlight a:hover {
+  text-decoration: underline;
+}
