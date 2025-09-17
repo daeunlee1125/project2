@@ -6,6 +6,14 @@
         <title>Document</title>
 
         <link rel="stylesheet" href="./index.css">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- bxSlider CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+        <!-- bxSlider JS -->
+        <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     </head>
     <body>
 
@@ -15,7 +23,7 @@
           <div class="top-header">
             <!-- 로고 -->
             <div class="header-left">
-              <img src="./image/image.png" alt="로고" class="logo">
+              <img src="./image/logo.png" alt="로고" class="logo">
             </div>
 
             <!-- 검색창 -->
@@ -39,12 +47,12 @@
           <!-- 2번째 줄 -->
           <div class="bottom-header">
             <div class="header-left">
-              <a href="#">전체 카테고리</a>
-            <a href="#">히트상품</a>
-            <a href="#">추천상품</a>
-            <a href="#">최신상품</a>
-            <a href="#">인기상품</a>
-            <a href="#">할인상품</a>
+              <a href="#" id="categoryBtn"> 전체 카테고리</a>
+              <a href="#">히트상품</a>
+              <a href="#">추천상품</a>
+              <a href="#">최신상품</a>
+              <a href="#">인기상품</a>
+              <a href="#">할인상품</a>
 
             </div>
 
@@ -59,62 +67,177 @@
             </div>
 
         </header>
+        
+
 
         <div class="container">
+            
+            <div class="left-space">
+              <div class="inner">
+                <h3>베스트 상품</h3>
 
-            <aside>
-                <div class="menu">
-                    <button class="mainmenu">패션/의류/뷰티</button>
-                    <div class="submenu">
-                      <a href="#">여성의류</a>
-                      <a href="#">남성의류</a>
-                      <a href="">등등등</a>
+                <!-- 첫 번째 상품 (카드형) -->
+                <div class="product-card">
+                  <div class="img-box">
+                    <img src="./image/prod1.png" alt="침대">
+                  </div>
+                  <a href="#" class="name">가이온 스너그 단면매트리스 침대 화이트</a>
+                  <div class="price-box">
+                    <div class="price-top">
+                      <span class="original" >266,180원</span>
+                      <span class="discount" >54%</span>
+                    </div>
+                    <div style="height: 15px; line-height: 15px; padding-top: 3px;">
+                      
+                      <span class="sale">119,800원</span>
                     </div>
                   </div>
+                </div>
+
+                <!-- 나머지 상품 (리스트형) -->
+                <ul class="product-list">
+                  <li class="product-item">
+                    <div class="thumb">
+                      <img src="./image/prod2.png" alt="운동화">
+                    </div>
+                    <div class="info">
+                      <a href="#" class="name">여성용 러닝업 트래킹화</a>
+                      <div class="price-box">
+                        <div class="price-top2">
+                          <span class="original" >133,090원</span>
+                          <span class="discount" >54%</span>
+                        </div>
+                        <div style="height: 15px; line-height: 15px; padding-top: 3px;">
+                          
+                          <span class="sale">59,900원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product-item">
+                    <div class="thumb">
+                      <img src="./image/prod3.png" alt="세제">
+                    </div>
+                    <div class="info">
+                      <a href="#" class="name">듀얼(드럼/일반 겸용) 2.7L x2개 세탁세제</a>
+                      <div class="price-box">
+                        <div class="price-top2">
+                          <span class="original" >66,600원</span>
+                          <span class="discount" >54%</span>
+                        </div>
+                        <div style="height: 15px; line-height: 15px; padding-top: 3px;">
+                          
+                          <span class="sale">29,950원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product-item">
+                    <div class="thumb">
+                      <img src="./image/prod4.png" alt="화장품">
+                    </div>
+                    <div class="info">
+                      <a href="#" class="name">비건 피톤치드 시카 토너</a>
+                      <div class="price-box">
+                        <div class="price-top2">
+                          <span class="original" >133,090원</span>
+                          <span class="discount" >54%</span>
+                        </div>
+                        <div style="height: 15px; line-height: 15px; padding-top: 3px;">
+                          
+                          <span class="sale">59,900원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product-item">
+                    <div class="thumb">
+                      <img src="./image/prod5.png" alt="모자">
+                    </div>
+                    <div class="info">
+                      <a href="#" class="name">남녀공용 모자 블랙</a>
+                      <div class="price-box">
+                        <div class="price-top2">
+                          <span class="original" >133,090원</span>
+                          <span class="discount" >54%</span>
+                        </div>
+                        <div style="height: 15px; line-height: 15px; padding-top: 3px;">
+                          
+                          <span class="sale">59,900원</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
                 
-                  <div class="menu">
-                    <button class="mainmenu">1차 카테고리 2</button>
-                    <div class="submenu">
-                      <a href="#">하위 카테고리 1</a>
-                      <a href="#">하위 카테고리 2</a>
-                    </div>
-                  </div>
-            </aside>
+            <div class="wrapper">
+              
+              <div id="categoryBox" class="category-box">
+                <div class="main-menu">
+                  <ul>
+                    <li data-target="menu1">패션/의류/뷰티</li>
+                    <li data-target="menu2">패션잡화</li>
+                    <li data-target="menu3">명품</li>
+                    <li data-target="menu4">뷰티</li>
+                  </ul>
+                </div>
+
+                <div class="sub-menu">
+                  <ul id="menu1" class="submenu-content">
+                    <li><a href="#">여성의류</a></li>
+                    <li><a href="#">남성의류</a></li>
+                    <li><a href="#">아동복</a></li>
+                  </ul>
+                  <ul id="menu2" class="submenu-content" style="display:none;">
+                    <li><a href="#">가방</a></li>
+                    <li><a href="#">신발</a></li>
+                  </ul>
+                  <ul id="menu3" class="submenu-content" style="display:none;">
+                    <li><a href="#">해외 명품</a></li>
+                    
+                  </ul>
+                  <ul id="menu4" class="submenu-content" style="display:none;">
+                    <li><a href="#">스킨케어</a></li>
+                    <li><a href="#">메이크업</a></li>
+                  </ul>
+                </div>
+              </div>
 
 
-
-            <div class="sdfljk">
-                요소
-                <div class="wrapper">
               <main>
-                
-
-                <div>aside bar, header, footer 뺀 나머지 공간</div>
-                <div>본문 길이 상관없이 헤더 맨 위, 푸터 맨 밑에 오게 위치 고정</div>
-                <div>메인 내용 길어져도 어사이드 바 길이는 안 줄고 내용이 줄바꿈되게 고정</div>
+                <br>
+                <ul class="bxslider">
+                  <li><img src="./image/ban-img1.png" alt="이미지1" style="width: 100%; height: 550px;"></li>
+                  <li><img src="./image/banner-top.jpg" alt="이미지2" style="height: 550px;"></li>
+                  <li><img src="./image/ban-img2.png" alt="이미지3" style="width: 100%; height: 550px;"></li>
+                </ul>
 
               </main>
             </div>
 
-            </div>
+            
 
         </div>
 
 
         <footer>
           <div class="top-footer">
-            <a href="#">회사소개</a>
-            <a href="#">서비스이용약관</a>
-            <a href="#">개인정보처리방침</a>
-            <a href="#">전자금융거래약관</a>
+            <div class="top-f">
+              <a href="#">회사소개</a> |
+              <a href="#">서비스이용약관</a> |
+              <a href="#">개인정보처리방침</a> |
+              <a href="#">전자금융거래약관</a>
+            </div>
             
           </div>
           
           <div class="bottom-footer">
             <div class="footer-left">
-              <h2>(주)샵플리</h2>
+              <h2>(주)SHOPLY</h2>
 
-              <br>
+              
               <div>부산광역시 부산진구 중앙대로 103</div>
               <div>그린타워 13층</div>
               <div>대표이사 : 홍길동</div>
@@ -125,7 +248,6 @@
             <div class="footer-right">
               <h2>고객센터</h2>
 
-              <br>
               <div>Tel : 1234-5678 (평일 09:00~18:00)</div>
               <div>전자금융거래 분쟁 담당 : 1234-1234(365일 09:00~18:00)</div>
               
