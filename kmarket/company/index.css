@@ -16,6 +16,11 @@ main.container {
   background: #ffffff;  /* ✅ 본문은 흰색 */
 }
 
+.company.menu a.active {
+  color: orangered;     /* 강조 색상 */
+  font-weight: 700;     /* 굵게 */
+}
+
 /* ===========================================헤더 === */
 header {
   padding-top: 20px;
