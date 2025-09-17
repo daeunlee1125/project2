@@ -6,6 +6,8 @@
   <title>SHOPLY 기업문화</title>
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./culture.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body class="culture-page"> <!-- 🔹 body에 culture-page 클래스 부여 -->
 
@@ -13,18 +15,19 @@
     <!-- 1번째 줄: 로고 -->
     <div class="top-header">
       <div class="header-left">
-        <img src="../image/image.png" alt="로고" class="logo">
+        <a href="./index.html">
+        <img src="../image/image.png" alt="로고" class="logo"></a>
       </div>
     </div>
 
     <!-- 2번째 줄: 회사 메뉴 -->
     <div class="bottom-header">
       <div class="company menu">
-        <a href="#">HOME</a> | 
-        <a href="#" class="active">기업문화</a> | <!-- 🔹 현재 페이지 active 표시 -->
-        <a href="#">소식과 이야기</a> | 
-        <a href="#">채용</a> | 
-        <a href="#">미디어</a>
+        <a href="./index.html">HOME</a> | 
+        <a href="./culture.html" class="active">기업문화</a> | <!-- 🔹 현재 페이지 active 표시 -->
+        <a href="./story.html">소식과 이야기</a> | 
+        <a href="./recruit.html">채용</a> | 
+        <a href="./media.html">미디어</a>
       </div>
     </div>
   </header>
@@ -52,39 +55,41 @@
     </div>
   </section>
 
-  <!-- 문화 카드 Section -->
-  <section class="culture-values appear">
-    <div class="container grid">
-      <div class="card">
-        <img src="../image/icon-initiative.png" alt="주도성">
-        <h3>스스로 판단하고 주도적으로 일해요</h3>
-        <p>누구의 지시가 아닌 스스로 일의 의미를 찾고 몰입하며 성장합니다.</p>
+    <!-- 문화 카드 Section -->
+    <section class="culture-values appear">
+      <div class="container grid">
+        <div class="card">
+          <i class="fa-solid fa-book"></i>
+          <h3>스스로 판단하고 주도적으로 일해요</h3>
+          <p>누구의 지시가 아닌 스스로 일의 의미를 찾고 몰입하며 성장합니다.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-play"></i>
+          <h3>빠르게 실행하고 확실히 성공해요</h3>
+          <p>아이디어를 주저하지 않고 실험하며 사용자에게 가치를 빠르게 전달합니다.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-hands-praying"></i>
+          <h3>서로 신뢰하고 솔직하게 소통해요</h3>
+          <p>다양한 의견을 존중하며, 신뢰를 바탕으로 솔직하게 대화합니다.</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+          <h3>기록은 꼼꼼하게, 공유는 투명하게</h3>
+          <p>모든 정보는 투명하게 공유하고, 지식은 모두의 자산이 됩니다.</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="../image/icon-rocket.png" alt="실행">
-        <h3>빠르게 실행하고 확실히 성공해요</h3>
-        <p>아이디어를 주저하지 않고 실험하며 사용자에게 가치를 빠르게 전달합니다.</p>
-      </div>
-      <div class="card">
-        <img src="../image/icon-trust.png" alt="신뢰">
-        <h3>서로 신뢰하고 솔직하게 소통해요</h3>
-        <p>다양한 의견을 존중하며, 신뢰를 바탕으로 솔직하게 대화합니다.</p>
-      </div>
-      <div class="card">
-        <img src="../image/icon-share.png" alt="공유">
-        <h3>기록은 꼼꼼하게, 공유는 투명하게</h3>
-        <p>모든 정보는 투명하게 공유하고, 지식은 모두의 자산이 됩니다.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 마지막 강조 Section -->
-  <section class="culture-highlight appear">
-    <div class="container">
-      <h2>SHOPLY의 문화는 끊임없이 발전 중이에요</h2>
-      <a href="#">블로그 글 보러가기 →</a>
-    </div>
-  </section>
+
+    <!-- 마지막 강조 Section -->
+    <section class="culture-highlight appear">
+      <img src="../image/culture2.png" alt="배경 이미지" class="highlight-bg">
+        <div class="highlight-overlay">
+          <h2>SHOPLY는 끊임없이 발전 중이에요</h2>
+          <a href="#">소식과 이야기 보러가기 →</a>
+        </div>
+    </section>
 
 </main>
 
