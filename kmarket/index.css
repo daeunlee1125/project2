@@ -7,7 +7,7 @@ body {
 
 header {
   
-  padding-top: 20px;
+  padding-top: 0px;
   background: white;
   border-bottom: 1px solid #ddd;
 }
@@ -15,19 +15,25 @@ header {
 
 
 .top-header {
+  padding-top: 15px;
   max-width: 1250px;
   margin: 0 auto;
-  height: 60px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   box-sizing: border-box;
 }
 
 .header-left {
   height: 40px;
   flex: 1;
+  
+}
+.top-header .header-left{
+  height: 60px;
+  padding-bottom: 5px;
 }
 
 .header-center {
@@ -40,16 +46,19 @@ header {
   display: flex;
   align-items: center;
   gap: 13px;
+  padding-top: 2px;
 }
 
 .logo {
-  height: 45px;
+  height: 48px;
+  margin-top: 8px;
 }
 
 .header-center form {
   display: flex;
   border: 1px solid #ccc;
   padding: 5px 10px;
+  margin-top: 2px;
 }
 
 .header-center input {
@@ -127,12 +136,18 @@ footer {
   border-bottom: 1px solid rgb(192, 192, 192);
 }
 
-.top-footer .top-f{
+.top-f{
   max-width: 1250px;
   margin: auto;
   padding-top: 12px;
   box-sizing: border-box;
   height: 50px;
+}
+.top-f a {
+  color: #727272;
+  font-weight: bold;
+  margin: 20px;
+  text-decoration: none;
 }
 
 .top-footer a {
@@ -211,8 +226,8 @@ aside {
 /* 왼쪽 main menu */
 .main-menu {
   width: 130px;
-  border-right: 1px solid #eee;
-  background: #eee;
+  border-right: 1px solid rgb(236, 226, 236);
+  background:rgb(236, 226, 236);
 
 }
 
@@ -251,7 +266,7 @@ aside {
 
 
 .sub-menu li:hover {
-  background: #eee;
+  background:rgb(236, 226, 236);
   font-weight: bold;
 }
 
@@ -270,10 +285,10 @@ aside {
   margin: 0 auto;
   top: 400px;
   min-height: 650px;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 
 .inner h3 {

@@ -19,10 +19,10 @@ const box = document.getElementById("categoryBox");
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   const currentColor = getComputedStyle(btn).color; // 계산된 색상 (rgb 값 반환)
-  if (currentColor === "rgb(186, 29, 29)") {        // #ba1d1d = rgb(186, 29, 29)
+  if (currentColor === "rgb(113, 69, 145)") {        // #ba1d1d = rgb(186, 29, 29)
     btn.style.color = "black";
   } else {
-    btn.style.color = "#ba1d1d";
+    btn.style.color = "rgb(113, 69, 145)";
   }
   box.style.display = (box.style.display === "flex") ? "none" : "flex";
 });
@@ -40,12 +40,12 @@ mainItems.forEach(item => {
       c.style.display = (c.id === target) ? "block" : "none";
     });
     mainItems.forEach(i => {
-      i.style.background = "#eee";
+      i.style.background = "rgb(236, 226, 236)";
       i.style.color = "black";
       i.style.fontWeight = "400";
       
     });
-    item.style.background = "#1b1b1bff";
+    item.style.background = "#3a303aff";
     item.style.color = "white";
     item.style.fontWeight = "bold";
   });
