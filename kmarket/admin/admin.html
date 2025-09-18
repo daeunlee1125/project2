@@ -303,8 +303,34 @@ a {
 
 /* 메인 전용 */
 .main-content {
-    position: relative;
     min-height: 900px;
+}
+
+.main-common {
+    position: relative;
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 50px;
+    height: 900px;
+}
+
+.main-content-top {
+    border: 1px solid;
+}
+
+.main-head {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.main-head-right {
+    display: flex;
+
 }
 /* =================== main 끝 =================== */
 </style>
@@ -384,13 +410,31 @@ a {
 
     <div class="main">
         <div class="middle main-content">
-            <h1>관리자 페이지 메인 콘텐츠</h1>
-            <p>
-                페이지 길이가 길어져도 사이드바는 왼쪽에 고정됩니다.
-            </p>
-            
-            <div class="register-btn-container">
-                <button class="register-btn" id="openModalBtn">등록하기</button>
+            <div class="main-common">
+                <div class="main-head">
+                    <div>
+                        <h3>관리자메인</h3>
+                    </div>
+                    <div class="main-head-right">
+                        <a href="">HOME</a>
+                        <div>
+                            &nbsp;&nbsp;>&nbsp;&nbsp;
+                        </div>
+                        <a href="">관리자 메인</a>
+                    </div>
+                </div>
+                <div class="main-content-top">
+                    <div>
+
+                    </div>
+
+                    <div>
+
+                    </div>
+                </div>
+                <div class="register-btn-container">
+                    <button class="register-btn" id="openModalBtn">등록하기</button>
+                </div>
             </div>
         </div>
     </div>
