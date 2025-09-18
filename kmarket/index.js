@@ -11,20 +11,36 @@ $(document).ready(function(){
   });
 
 
-
-// 전체 카테고리 버튼 토글
 const btn = document.getElementById("categoryBtn");
 const box = document.getElementById("categoryBox");
 
+// 버튼 클릭 → 토글
 btn.addEventListener("click", (e) => {
   e.preventDefault();
-  const currentColor = getComputedStyle(btn).color; // 계산된 색상 (rgb 값 반환)
-  if (currentColor === "rgb(113, 69, 145)") {        // #ba1d1d = rgb(186, 29, 29)
+  e.stopPropagation(); // 이벤트 전파 막기 (document로 전달 방지)
+
+  const currentColor = getComputedStyle(btn).color;
+  if (currentColor === "rgb(113, 69, 145)") {     
     btn.style.color = "black";
   } else {
     btn.style.color = "rgb(113, 69, 145)";
   }
+
+  // 토글
   box.style.display = (box.style.display === "flex") ? "none" : "flex";
+});
+
+// 카테고리 박스 내부 클릭 → 닫히지 않도록
+box.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+
+// 문서 아무 곳이나 클릭 → 닫기
+document.addEventListener("click", () => {
+  if (box.style.display === "flex") {
+    box.style.display = "none";
+    btn.style.color = "black"; // 버튼 색도 초기화
+  }
 });
 
 

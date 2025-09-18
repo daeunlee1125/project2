@@ -12,7 +12,21 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
+.top-adv{
+  width: 1250px; height: 90px; margin: 0 auto;
+}
 
+.top-bar-back{
+  width: 100%; height: 30px; background-image: url('image/test333.PNG'); background-size: cover;
+}
+.top-bar {
+  color: rgb(165, 5, 130); 
+  font-size: 13px; 
+  align-items: center; 
+  line-height: 30px; 
+  text-align: center; 
+  margin: 0 auto;
+}
 
 .top-header {
   padding-top: 15px;
@@ -130,9 +144,7 @@ footer {
   border-top: 1px #c4c4c4 solid;
 }
 
-
 .top-footer{
-  box-sizing: border-box;
   border-bottom: 1px solid rgb(192, 192, 192);
 }
 
@@ -150,28 +162,23 @@ footer {
   text-decoration: none;
 }
 
-.top-footer a {
-  
-  color: #727272;
-  font-weight: bold;
-  margin: 20px;
+.footer-wrapper {
+  max-width: 1250px; margin: 0 auto;
+}
+.footer-wrapper .cpname{
+  margin: 0; margin-top: 20px; position:relative; top: 5px; left: 3px;
+}
+.call-cont{
+  display: flex; align-items: center; height: 45px;
 }
 
-.bottom-footer{
-  display: flex;
-  max-width: 1250px;
-  margin: 0 auto;
+.call-cont .tel{
+  font-size: 40px; font-weight: bold;
+}
+.call-cont .time{
+  font-size: 20px; align-self: flex-end; margin-left: 5px; margin-bottom: 2px;
 }
 
-
-.bottom-footer .footer-left{
-  flex: 1;
-  padding: 0px 20px;
-}
-.bottom-footer .footer-right{
-  flex: 1;
-  padding: 0px 20px;
-}
 
 .container {
   position: relative;
@@ -203,8 +210,7 @@ aside {
   margin: 0 auto;
   box-sizing: border-box;
   
-  
-  height: 1740px;
+
 }
 
 /* 카테고리 박스 */
@@ -275,17 +281,16 @@ aside {
   left:0px;              /* 화면 왼쪽 기준 */
   width: calc((100% - 1250px) / 2); /* wrapper 왼쪽 여백 */
   height: 97%;         /* 원하는 높이 */
-  
-
+  padding-top: 23px;
 }
 
 .left-space .inner {
   position: sticky;
   width: 85%;
   margin: 0 auto;
-  top: 400px;
+  top: 23px;
   min-height: 650px;
-  background-color: #f8f8f8;
+  background-color: hsl(0, 0%, 100%);
   padding: 10px;
   border-radius: 8px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
@@ -293,10 +298,10 @@ aside {
 
 .inner h3 {
   text-align: center;
-  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin: 6px; font-size: 25px;
   color: #333;
+  
 }
 
 /* 카드형 첫 번째 상품 */
@@ -351,6 +356,7 @@ aside {
   padding: 10px 5px;
   margin-bottom: 12px;
   border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   transition: transform 0.2s ease;
   
 }
@@ -419,6 +425,14 @@ aside {
   color: #d32f2f;  /* 진한 빨강 */
   font-weight: bold;
   margin-left: 3px;
+}
+
+.sale-cont{
+  height: 15px; line-height: 15px; padding-top: 3px;
+}
+
+.bxslider li img{
+  width: 100%; height: 550px;
 }
 
 .price-box .sale {
