@@ -1,6 +1,9 @@
 /* =================== Header & Footer 시작 =================== */
 body {
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: 'Malgun Gothic', sans-serif;
     background-color: #f4f7f6;
 }
@@ -19,7 +22,7 @@ a {
     height: 100%;
 }
 
-.header {
+header {
     height: 100px;
     padding-top: 5px;
     background-color: #fff;
@@ -27,13 +30,13 @@ a {
     box-sizing: border-box;
 }
 
-.footer {
+footer {
     height: 50px;
     background-color: #34495e;
     color: white;
 }
 
-.header .middle {
+header .middle {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,16 +65,18 @@ a {
 
 /* =================== main 시작 =================== */
 .main {
-    min-height: calc(100vh - 131px);
     padding-top: 20px;
     padding-bottom: 20px;
     box-sizing: border-box;
+    flex: 1;
 
 }
 
 /* 메인 전용 */
 .main-content {
-    min-height: 900px;
+    height: 100%;
+    min-height: 700px;
+    position: relative;
 }
 
 .main-common {
@@ -79,7 +84,8 @@ a {
     width: 1250px;
     margin: 0 auto;
     padding-top: 30px;
-    height: 900px;
+    height: 100%;
+    min-height: 700px;
 }
 
 .main-content-top {
@@ -113,6 +119,8 @@ a {
 
 main {
     padding-top: 20px;
+
+    height: 100%;
 }
 
 /* =================== main 끝 =================== */
@@ -125,7 +133,7 @@ main {
 
 
 
-.footer .middle {
+footer .middle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,7 +147,7 @@ main {
 .sidebar {
     position: fixed;
     left: 20px;
-    top: 100px;
+    top: 156px;
     width: 220px;
     height: auto;
     max-height: calc(100vh - 120px);
@@ -215,9 +223,9 @@ main {
 
 /* =================== 등록하기 버튼 스타일 =================== */
 .register-btn-container {
-    position: absolute;
-    bottom: 20px;
+    float: right;
     right: 0px;
+    margin-top: 10px;
 }
 .register-btn {
     background-color: #4CAF50;

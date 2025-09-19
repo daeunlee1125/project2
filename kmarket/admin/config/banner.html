@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Daum 우편번호 서비스를 위한 스크립트 -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <link rel="stylesheet" href="/kmarket/inc/css/common.css">
-    <link rel="stylesheet" href="/kmarket/inc/css/admin.css">
+    <link rel="stylesheet" href="/kmarket/inc/css/admin/common.css">
+    <link rel="stylesheet" href="/kmarket/inc/css/admin/config.css">
 
 </head>
 <body>
@@ -69,7 +69,7 @@
         </nav>
     </aside>
 
-    <div class="header">
+    <header>
         <div class="middle">
             <div id="logo">
                 <img src="/kmarket/inc/image/logo.jpg" alt="logo">
@@ -83,7 +83,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </header>
 
     
 
@@ -102,29 +102,171 @@
                         <a href="" class="nav-last">관리자 메인</a>
                     </div>
                 </div>
-                <div class="main-content-top">
-                    <div>
+                <div class="main-content-top"></div>
+                <main>
 
+                    <!-- 탭 메뉴 -->
+                    <ul id="tabMenu">
+                    <li data-target="bannerTop">메인상단배너</li>
+                    <li data-target="bannerSlider">메인슬라이더배너</li>
+                    <li data-target="bannerDetail">상품상세보기배너</li>
+                    <li data-target="bannerLogin">회원로그인 배너</li>
+                    <li data-target="bannerMy">마이페이지 배너</li>
+                    </ul>
+
+                    <!-- 탭별 콘텐츠 -->
+                    <div id="bannerTop" class="tab-content">
+                    <h3>메인 상단배너</h3>
+                    <table class="table-2">
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>번호</th>
+                            <th>이미지</th>
+                            <th>배너정보</th>
+                            <th>배너위치</th>
+                            <th>시작일</th>
+                            <th>종료일</th>
+                            <th>시작 시간</th>
+                            <th>종료 시간</th>
+                            <th>관리</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>1</td>
+                            <td><img src="/kmarket/inc/image/call.png" alt="" style="height: 40px;"></td>
+                            <td>
+                                배너명 <br>
+                                크기 : 1200 x 80 <br>
+                                배경색 : #fff000 <br>
+                                배너링크
+                            </td>
+                            <td>MAIN1</td>
+                            <td>2023/01/01</td>
+                            <td>2023/01/07</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>
+                                <input type="submit" value="활성"> <br>
+                                <input type="submit" value="비활성">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2</td>
+                            <td><img src="/kmarket/inc/image/call.png" alt="" style="height: 40px;"></td>
+                            <td>
+                                배너명 <br>
+                                크기 : 1200 x 80 <br>
+                                배경색 : #fff000 <br>
+                                배너링크
+                            </td>
+                            <td>MAIN1</td>
+                            <td>2023/01/01</td>
+                            <td>2023/01/07</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>
+                                <input type="submit" value="활성"> <br>
+                                <input type="submit" value="비활성">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>3</td>
+                            <td><img src="/kmarket/inc/image/call.png" alt="" style="height: 40px;"></td>
+                            <td>
+                                배너명 <br>
+                                크기 : 1200 x 80 <br>
+                                배경색 : #fff000 <br>
+                                배너링크
+                            </td>
+                            <td>MAIN1</td>
+                            <td>2023/01/01</td>
+                            <td>2023/01/07</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>
+                                <input type="submit" value="활성"> <br>
+                                <input type="submit" value="비활성">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>4</td>
+                            <td><img src="/kmarket/inc/image/call.png" alt="" style="height: 40px;"></td>
+                            <td>
+                                배너명 <br>
+                                크기 : 1200 x 80 <br>
+                                배경색 : #fff000 <br>
+                                배너링크
+                            </td>
+                            <td>MAIN1</td>
+                            <td>2023/01/01</td>
+                            <td>2023/01/07</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>
+                                <input type="submit" value="활성"> <br>
+                                <input type="submit" value="비활성">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>5</td>
+                            <td><img src="/kmarket/inc/image/call.png" alt="" style="height: 40px;"></td>
+                            <td>
+                                배너명 <br>
+                                크기 : 1200 x 80 <br>
+                                배경색 : #fff000 <br>
+                                배너링크
+                            </td>
+                            <td>MAIN1</td>
+                            <td>2023/01/01</td>
+                            <td>2023/01/07</td>
+                            <td>13:00</td>
+                            <td>15:00</td>
+                            <td>
+                                <input type="submit" value="활성"> <br>
+                                <input type="submit" value="비활성">
+                            </td>
+                        </tr>
+                    </table>
                     </div>
 
-                    <div>
-
+                    <div id="bannerSlider" class="tab-content" style="display:none;">
+                    <h3>메인 슬라이더 배너</h3>
+                    <table> ... 슬라이더 배너 테이블 ... </table>
                     </div>
-                </div>
-                <div class="register-btn-container">
-                    <button class="register-btn" id="openModalBtn">등록하기</button>
-                </div>
+
+                    <div id="bannerDetail" class="tab-content" style="display:none;">
+                    <h3>상품 상세보기 배너</h3>
+                    <table> ... 상세보기 배너 테이블 ... </table>
+                    </div>
+
+                    <div id="bannerLogin" class="tab-content" style="display:none;">
+                    <h3>회원 로그인 배너</h3>
+                    <table> ... 로그인 배너 테이블 ... </table>
+                    </div>
+
+                    <div id="bannerMy" class="tab-content" style="display:none;">
+                    <h3>마이페이지 배너</h3>
+                    <table> ... 마이페이지 배너 테이블 ... </table>
+                    </div>
+                    <div class="register-btn-container">
+                        <button class="register-btn" id="openModalBtn">등록하기</button>
+                    </div>
+                </main>
             </div>
         </div>
     </div>
 
-    <div class="footer">
+    <footer>
         <div class="middle">
             <p id="footer-p">
                 Copyright ©Kmarket.co.kr All rights reserved. Kmarket ADMINISTRATOR Version 5.4.1.2
             </p>
         </div>
-    </div>
+    </footer>
 
     <!-- 모달(팝업) HTML -->
     <div class="modal-overlay hidden" id="modal">
@@ -250,6 +392,7 @@
         searchAddressBtn.addEventListener('click', execDaumPostcode);
 
     </script>
+    <script src="/kmarket/inc/js/admin/config.js"></script>
 
 </body>
 </html>
