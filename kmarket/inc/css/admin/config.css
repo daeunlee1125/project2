@@ -1,0 +1,41 @@
+
+
+.h2-1 {
+    margin-bottom: 10px;
+}
+
+.gray-1 {
+    background-color: rgb(201, 201, 201);
+    height: 35px;
+    padding-left: 15px;
+    align-content: center;
+
+}
+
+.table-1 {
+    position: relative;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 7px;
+    margin-bottom: 30px;
+}
+
+.table-1 th {
+    position: relative;
+    border: 1px rgb(207, 207, 207) solid;
+    border-left: none;
+    background-color: rgb(227, 222, 238);
+    box-sizing: border-box;
+    width: 200px;
+    height: 45px;
+}
+
+
+.table-1 td {
+    border: 1px rgb(207, 207, 207) solid;
+    border-right: none;
+    box-sizing: border-box;
+    height: 45px;
+    padding-left: 15px;
+}
