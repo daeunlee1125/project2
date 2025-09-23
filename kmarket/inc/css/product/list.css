@@ -1,0 +1,32 @@
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;        /* 부모 요소의 글자색 따라감 */
+}
+
+.main-size {
+    width: 1250px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.main-nav{
+    font-size: 13px;
+}
+
+.main-list-head {
+    margin: 0 auto;
+    width: 100%;
+}
+.main-list-headName{
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15pt;
+}
+.main-list-head > hr {
+    border: 1.5px solid;
+}
+
+.sort-list{
+    display: flex;
+}
