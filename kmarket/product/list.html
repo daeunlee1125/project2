@@ -5,21 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
 
-        <link rel="stylesheet" href="/kmarket/index.css">
+        <link rel="stylesheet" href="/kmarket/inc/css/product/_tamplate.css">
+        <link rel="stylesheet" href="/kmarket/inc/css/product/list.css">
         
         <!-- bxSlider -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
     </head>
     <body>
 
         <header>
-
-          <!-- 메인화면 빼고는 이 줄 지우시면 됩니다! -->
-          <div class="top-adv"><img src="/kmarket/image/qqq.PNG" alt="" style="width: 100%; height: 100%;"></div>
-
-
 
           <div class="top-bar-back">
             <div class="top-bar">오늘의 행운 룰렛 → 꽝 없는 선물파티 OPEN!</div>
@@ -60,15 +57,47 @@
               <a href="#">인기상품</a>
               <a href="#">할인상품</a>
 
+                <!-- 전체 카테고리 누르면 튀어나오는 메뉴창 -->
+                <div id="categoryBox" class="category-box">
+                    <div class="main-menu">
+                        <ul>
+                            <li data-target="menu1">패션/의류/뷰티</li>
+                            <li data-target="menu2">패션잡화</li>
+                            <li data-target="menu3">명품</li>
+                            <li data-target="menu4">뷰티</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-menu">
+                        <ul id="menu1" class="submenu-content">
+                            <li><a href="#">여성의류</a></li>
+                            <li><a href="#">남성의류</a></li>
+                            <li><a href="#">아동복</a></li>
+                        </ul>
+                        <ul id="menu2" class="submenu-content" style="display:none;">
+                            <li><a href="#">가방</a></li>
+                            <li><a href="#">신발</a></li>
+                        </ul>
+                        <ul id="menu3" class="submenu-content" style="display:none;">
+                            <li><a href="#">해외 명품</a></li>
+                            
+                        </ul>
+                        <ul id="menu4" class="submenu-content" style="display:none;">
+                            <li><a href="#">스킨케어</a></li>
+                            <li><a href="#">메이크업</a></li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
 
 
             <div class="header-right login-menu">
             
-                <a href="#">로그인</a> | 
-                <a href="#">회원가입</a> | 
-                <a href="#">고객센터</a>
-              
+              <a href="#">로그인</a> | 
+              <a href="#">회원가입</a> | 
+              <a href="#">고객센터</a>
+            
             </div>
           </div>
 
@@ -77,151 +106,266 @@
 
 
         <div class="container">
-            
-            <!-- 베스트 상품 안 들어가는 창은 여기부터 저 아래 주석까지 삭제하고 작업 -->
-            <div class="left-space">
-              <div class="inner">
-                <h3>베스트 상품</h3>
-
-                <!-- 첫 번째 상품 (카드형) -->
-                <div class="product-card">
-                  <div class="img-box">
-                    <img src="/kmarket/image/prod1.png" alt="침대">
-                  </div>
-                  <a href="#" class="name">가이온 스너그 단면매트리스 침대 화이트</a>
-                  <div class="price-box">
-                    <div class="price-top">
-                      <span class="original" >266,180원</span>
-                      <span class="discount" >54%</span>
-                    </div>
-                    <div class="sale-cont">
-                      
-                      <span class="sale">119,800원</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 나머지 상품 (리스트형) -->
-                <ul class="product-list">
-                  <li class="product-item">
-                    <div class="thumb">
-                      <img src="/kmarket/image/prod2.png" alt="운동화">
-                    </div>
-                    <div class="info">
-                      <a href="#" class="name">여성용 러닝업 트래킹화</a>
-                      <div class="price-box">
-                        <div class="price-top2">
-                          <span class="original" >133,090원</span>
-                          <span class="discount" >54%</span>
-                        </div>
-                        <div class="sale-cont">
-                          
-                          <span class="sale">59,900원</span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="product-item">
-                    <div class="thumb">
-                      <img src="/kmarket/image/prod3.png" alt="세제">
-                    </div>
-                    <div class="info">
-                      <a href="#" class="name">듀얼(드럼/일반 겸용) 2.7L x2개 세탁세제</a>
-                      <div class="price-box">
-                        <div class="price-top2">
-                          <span class="original" >66,600원</span>
-                          <span class="discount" >54%</span>
-                        </div>
-                        <div class="sale-cont">
-                          
-                          <span class="sale">29,950원</span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="product-item">
-                    <div class="thumb">
-                      <img src="/kmarket/image/prod4.png" alt="화장품">
-                    </div>
-                    <div class="info">
-                      <a href="#" class="name">비건 피톤치드 시카 토너</a>
-                      <div class="price-box">
-                        <div class="price-top2">
-                          <span class="original" >133,090원</span>
-                          <span class="discount" >54%</span>
-                        </div>
-                        <div class="sale-cont">
-                          
-                          <span class="sale">59,900원</span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="product-item">
-                    <div class="thumb">
-                      <img src="/kmarket/image/prod5.png" alt="모자">
-                    </div>
-                    <div class="info">
-                      <a href="#" class="name">남녀공용 모자 블랙</a>
-                      <div class="price-box">
-                        <div class="price-top2">
-                          <span class="original" >133,090원</span>
-                          <span class="discount" >54%</span>
-                        </div>
-                        <div class="sale-cont">
-                          
-                          <span class="sale">59,900원</span>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
+          <!-- 왼쪽 사이드바 -->
+          <div class="left-space">
+            <!-- 카테고리 -->
+            <div class="category-sidebar">
+                <h2>상품목록</h2>
+                <ul>
+                    <li class="active"><a href="#">패션·의류·뷰티</a></li>
+                    <li><a href="#">가전·디지털</a></li>
+                    <li><a href="#">식품·생필품</a></li>
+                    <li><a href="#">홈·문구·취미</a></li>
                 </ul>
-              </div>
             </div>
-            <!-- 여기까지 베스트 상품!! -->
+            
+            <!-- 베스트 상품 -->
+            <div class="inner">
+              <h3>베스트 상품</h3>
 
-
-            <div class="wrapper">
-              
-              <!-- 전체 카테고리 누르면 튀어나오는 메뉴창 -->
-              <div id="categoryBox" class="category-box">
-                <div class="main-menu">
-                  <ul>
-                    <li data-target="menu1">패션/의류/뷰티</li>
-                    <li data-target="menu2">패션잡화</li>
-                    <li data-target="menu3">명품</li>
-                    <li data-target="menu4">뷰티</li>
-                  </ul>
+              <!-- 첫 번째 상품 (카드형) -->
+              <div class="product-card">
+                <div class="img-box">
+                  <img src="/kmarket/inc/image/prod1.png" alt="침대">
                 </div>
-
-                <div class="sub-menu">
-                  <ul id="menu1" class="submenu-content">
-                    <li><a href="#">여성의류</a></li>
-                    <li><a href="#">남성의류</a></li>
-                    <li><a href="#">아동복</a></li>
-                  </ul>
-                  <ul id="menu2" class="submenu-content" style="display:none;">
-                    <li><a href="#">가방</a></li>
-                    <li><a href="#">신발</a></li>
-                  </ul>
-                  <ul id="menu3" class="submenu-content" style="display:none;">
-                    <li><a href="#">해외 명품</a></li>
+                <a href="#" class="name">가이온 스너그 단면매트리스 침대 화이트</a>
+                <div class="price-box">
+                  <div class="price-top">
+                    <span class="original" >266,180원</span>
+                    <span class="discount" >54%</span>
+                  </div>
+                  <div class="sale-cont">
                     
-                  </ul>
-                  <ul id="menu4" class="submenu-content" style="display:none;">
-                    <li><a href="#">스킨케어</a></li>
-                    <li><a href="#">메이크업</a></li>
-                  </ul>
+                    <span class="sale">119,800원</span>
+                  </div>
                 </div>
               </div>
 
-
+              <!-- 나머지 상품 (리스트형) -->
+              <ul class="product-list">
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="/kmarket/inc/image/prod2.png" alt="운동화">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">여성용 러닝업 트래킹화</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >133,090원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">59,900원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="/kmarket/inc/image/prod3.png" alt="세제">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">듀얼(드럼/일반 겸용) 2.7L x2개 세탁세제</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >66,600원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">29,950원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="/kmarket/inc/image/prod4.png" alt="화장품">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">비건 피톤치드 시카 토너</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >133,090원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">59,900원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="/kmarket/inc/image/prod5.png" alt="모자">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">남녀공용 모자 블랙</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >133,090원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">59,900원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="" alt="신발">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">신발</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >133,090원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">59,900원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product-item">
+                  <div class="thumb">
+                    <img src="" alt="옷">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="name">옷</a>
+                    <div class="price-box">
+                      <div class="price-top2">
+                        <span class="original" >133,090원</span>
+                        <span class="discount" >54%</span>
+                      </div>
+                      <div class="sale-cont">
+                        
+                        <span class="sale">59,900원</span>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+            
+          <div class="wrapper">
               <main>
-                <!-- 메인화면 빼고 다른 분들은 주석부터 주석까지(bxslider) 삭제하고 -->
-                <!-- main 태그 안에서 작업 -->
-                <!--  -->
-                
-                <!-- -->
+                  <!-- 경로(Breadcrumb) -->
+                  <nav class="breadcrumb">
+                      <a href="#">HOME</a> &gt; <a href="#">패션 · 의류 · 뷰티</a> &gt; <span>남성의류</span>
+                  </nav>
+
+                  <!-- 정렬 옵션 -->
+                  <div class="sorting-bar">
+                      <a href="#" class="active">판매많은순</a> |
+                      <a href="#">낮은가격순</a> |
+                      <a href="#">높은가격순</a> |
+                      <a href="#">평점높은순</a> |
+                      <a href="#">후기많은순</a> |
+                      <a href="#">최근등록순</a>
+                  </div>
+
+                  <!-- 상품 목록 -->
+                  <section class="product-list-main">
+                      <!-- DB 연결 시, 이 상품 아이템을 반복문으로 처리하세요. -->
+                      <article class="product-item-main">
+                          <a href="#" class="product-link">
+                              <div class="product-img">
+                                  <img src="https://placehold.co/220x220/E0E0E0/9E9E9E?text=Product+Image" alt="상품 이미지">
+                              </div>
+                              <div class="product-details">
+                                  <h4 class="product-name">상품명</h4>
+                                  <p class="product-desc">간단한 상품 설명</p>
+                                  <div class="product-price">
+                                      <span class="price">27,000 원</span>
+                                      <span class="original-price">30,000원</span>
+                                      <span class="discount-rate">10%</span>
+                                  </div>
+                                  <div class="shipping-info">
+                                      <span>무료배송</span>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="product-seller-info">
+                              <span class="seller-name">판매자</span>
+                              <span class="product-rating">
+                                  ⭐⭐⭐⭐☆ 4.5
+                              </span>
+                          </div>
+                      </article>
+                      <!--// 상품 아이템 반복 끝 -->
+
+                      <!-- 아래는 UI 확인을 위한 더미 데이터입니다.-->
+                      <article class="product-item-main">
+                          <a href="#" class="product-link">
+                              <div class="product-img">
+                                  <img src="https://placehold.co/220x220/E0E0E0/9E9E9E?text=Product+Image" alt="상품 이미지">
+                              </div>
+                              <div class="product-details">
+                                  <h4 class="product-name">다른 상품명</h4>
+                                  <p class="product-desc">조금 더 긴 상품 설명이 여기에 들어갑니다. 두 줄까지 표시될 수 있습니다.</p>
+                                  <div class="product-price">
+                                      <span class="price">35,500 원</span>
+                                      <span class="original-price">40,000원</span>
+                                      <span class="discount-rate">11%</span>
+                                  </div>
+                                  <div class="shipping-info">
+                                      <span>배송비 2,500원</span>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="product-seller-info">
+                              <span class="seller-name">다른판매자</span>
+                              <span class="product-rating">
+                                  ⭐⭐⭐⭐⭐ 5.0
+                              </span>
+                          </div>
+                      </article>
+                      <article class="product-item-main">
+                          <a href="#" class="product-link">
+                              <div class="product-img">
+                                  <img src="https://placehold.co/220x220/E0E0E0/9E9E9E?text=Product+Image" alt="상품 이미지">
+                              </div>
+                              <div class="product-details">
+                                  <h4 class="product-name">세 번째 상품</h4>
+                                  <p class="product-desc">인기있는 상품입니다.</p>
+                                  <div class="product-price">
+                                      <span class="price">12,000 원</span>
+                                  </div>
+                                  <div class="shipping-info">
+                                      <span>무료배송</span>
+                                  </div>
+                              </div>
+                          </a>
+                           <div class="product-seller-info">
+                              <span class="seller-name">최고판매자</span>
+                              <span class="product-rating">
+                                  ⭐⭐⭐⭐☆ 4.8
+                              </span>
+                          </div>
+                      </article>
+
+                  </section>
+
+                  <!-- 페이지네이션 -->
+                  <nav class="pagination">
+                      <a href="#" class="prev">&lt; 이전</a>
+                      <a href="#" class="active">1</a>
+                      <a href="#">2</a>
+                      <a href="#">3</a>
+                      <a href="#">4</a>
+                      <a href="#">5</a>
+                      <a href="#">6</a>
+                      <a href="#">7</a>
+                      <a href="#" class="next">다음 &gt;</a>
+                  </nav>
               </main>
             </div>
 
@@ -265,8 +409,48 @@
         </footer>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryBtn = document.getElementById('categoryBtn');
+            const categoryBox = document.getElementById('categoryBox');
 
-    </body>
+            if (categoryBtn && categoryBox) {
+                // '전체 카테고리' 버튼 클릭 시 메뉴 토글
+                categoryBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // a 태그의 기본 동작(페이지 이동) 방지
+                    event.stopPropagation(); // 이벤트 버블링 중단
+                    
+                    const isVisible = categoryBox.style.display === 'flex';
+                    categoryBox.style.display = isVisible ? 'none' : 'flex';
+                });
 
+                // 페이지의 다른 곳을 클릭하면 메뉴 닫기
+                document.addEventListener('click', function(event) {
+                    if (!categoryBtn.contains(event.target) && !categoryBox.contains(event.target)) {
+                        categoryBox.style.display = 'none';
+                    }
+                });
+            }
+
+            // 카테고리 메뉴 내부 마우스 호버 기능
+            const mainMenuItems = document.querySelectorAll('.main-menu li');
+            const subMenus = document.querySelectorAll('.sub-menu .submenu-content');
+
+            mainMenuItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const targetId = item.getAttribute('data-target');
+                    
+                    subMenus.forEach(subMenu => {
+                        if (subMenu.id === targetId) {
+                            subMenu.style.display = 'block';
+                        } else {
+                            subMenu.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
     <script src="/kmarket/index.js"></script>
+    </body>
 </html>

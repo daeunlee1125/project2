@@ -1,0 +1,24 @@
+/* --- 메인 콘텐츠 내부 스타일 --- */
+.breadcrumb { font-size: 12px; color: #888; margin-bottom: 20px; }
+.breadcrumb a { color: #555; }
+.sorting-bar { font-size: 13px; padding-bottom: 15px; border-bottom: 1px solid #eee; margin-bottom: 20px; }
+.sorting-bar a { margin: 0 8px; color: #777; }
+.sorting-bar a:first-child { margin-left: 0; }
+.sorting-bar a.active { font-weight: bold; color: #5D2D8F; }
+.product-list-main { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.product-item-main { border: 1px solid #eee; border-radius: 5px; transition: box-shadow 0.3s; }
+.product-item-main:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.product-item-main .product-link { display: block; }
+.product-item-main .product-img img { width: 100%; display: block; border-radius: 5px 5px 0 0; }
+.product-item-main .product-details { padding: 15px; }
+.product-name { font-size: 15px; font-weight: normal; }
+.product-desc { font-size: 13px; color: #777; margin: 5px 0 10px; height: 36px; overflow: hidden; }
+.product-price .price { font-size: 18px; font-weight: bold; }
+.product-price .original-price { font-size: 12px; color: #aaa; text-decoration: line-through; margin-left: 8px; }
+.product-price .discount-rate { font-size: 14px; color: red; font-weight: bold; margin-left: 8px; }
+.shipping-info { font-size: 12px; color: #555; margin-top: 10px; }
+.product-seller-info { font-size: 12px; color: #888; padding: 10px 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+.pagination { display: flex; justify-content: center; align-items: center; margin-top: 30px; }
+.pagination a { padding: 8px 12px; margin: 0 4px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px; color: #555; }
+.pagination a:hover { background-color: #f0f0f0; }
+.pagination a.active { background-color: #5D2D8F; color: white; border-color: #5D2D8F; font-weight: bold; }
