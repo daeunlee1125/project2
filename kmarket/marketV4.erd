@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="marketV4.erd.erd">
+	<entities>
+		<data-source id="oracle_thin-1994d1c1f72-816914cb83b77f1">
+			<entity id="1" name="CS_FAQ" fq-name="JINWON.CS_FAQ" order="0" font="Segoe UI:9:0" x="898" y="1067">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="2" name="CS_NOTICE" fq-name="JINWON.CS_NOTICE" order="1" font="Segoe UI:9:0" x="165" y="1281">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="3" name="CS_QNA" fq-name="JINWON.CS_QNA" order="2" font="Segoe UI:9:0" x="1194" y="611">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="4" name="CS_REVIEW" fq-name="JINWON.CS_REVIEW" order="3" font="Segoe UI:9:0" x="626" y="339">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="5" name="CUST_ADDR" fq-name="JINWON.CUST_ADDR" order="4" font="Segoe UI:9:0" x="677" y="692">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="6" name="CUST_CART" fq-name="JINWON.CUST_CART" order="5" font="Segoe UI:9:0" x="844" y="13">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="7" name="CUST_MEMBER" fq-name="JINWON.CUST_MEMBER" order="6" font="Segoe UI:9:0" x="874" y="227">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="8" name="CUST_POINT_HISTORY" fq-name="JINWON.CUST_POINT_HISTORY" order="7" font="Segoe UI:9:0" x="919" y="702">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="9" name="CUST_SELLER_INFO" fq-name="JINWON.CUST_SELLER_INFO" order="8" font="Segoe UI:9:0" x="931" y="872">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="10" name="CUST_SELLER_RATING" fq-name="JINWON.CUST_SELLER_RATING" order="9" font="Segoe UI:9:0" x="687" y="886">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="11" name="CUST_USER_COUPON" fq-name="JINWON.CUST_USER_COUPON" order="10" font="Segoe UI:9:0" x="1126" y="400">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="12" name="ORD_ORDER" fq-name="JINWON.ORD_ORDER" order="11" font="Segoe UI:9:0" x="208" y="806">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="13" name="ORD_ORDER_ITEM" fq-name="JINWON.ORD_ORDER_ITEM" order="12" font="Segoe UI:9:0" x="431" y="470">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="14" name="ORD_RETURN_EXCHANGE" fq-name="JINWON.ORD_RETURN_EXCHANGE" order="13" font="Segoe UI:9:0" x="48" y="475">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="15" name="PROD_CATEGORY1" fq-name="JINWON.PROD_CATEGORY1" order="14" font="Segoe UI:9:0" x="627" y="131">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="16" name="PROD_CATEGORY2" fq-name="JINWON.PROD_CATEGORY2" order="15" font="Segoe UI:9:0" x="612" y="225">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="17" name="PROD_NOTICE" fq-name="JINWON.PROD_NOTICE" order="16" font="Segoe UI:9:0" x="40" y="40">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="18" name="PROD_OPTION" fq-name="JINWON.PROD_OPTION" order="17" font="Segoe UI:9:0" x="40" y="224">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="19" name="PROD_PRODUCT" fq-name="JINWON.PROD_PRODUCT" order="18" font="Segoe UI:9:0" x="426" y="55">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="20" name="SYS_ADMIN" fq-name="JINWON.SYS_ADMIN" order="19" font="Segoe UI:9:0" x="165" y="1077">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="21" name="SYS_BANNER" fq-name="JINWON.SYS_BANNER" order="20" font="Segoe UI:9:0" x="402" y="1485">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="22" name="SYS_CONFIG" fq-name="JINWON.SYS_CONFIG" order="21" font="Segoe UI:9:0" x="402" y="1281">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="23" name="SYS_COUPON_MASTER" fq-name="JINWON.SYS_COUPON_MASTER" order="22" font="Segoe UI:9:0" x="1123" y="170">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="24" name="SYS_FILE" fq-name="JINWON.SYS_FILE" order="23" font="Segoe UI:9:0" x="898" y="1271">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="25" name="SYS_MEDIA" fq-name="JINWON.SYS_MEDIA" order="24" font="Segoe UI:9:0" x="402" y="1077">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="26" name="SYS_RECRUIT" fq-name="JINWON.SYS_RECRUIT" order="25" font="Segoe UI:9:0" x="165" y="1515">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="27" name="SYS_STORY" fq-name="JINWON.SYS_STORY" order="26" font="Segoe UI:9:0" x="658" y="1077">
+				<path name="JINWON"/>
+			</entity>
+			<entity id="28" name="SYS_VERSION" fq-name="JINWON.SYS_VERSION" order="27" font="Segoe UI:9:0" x="658" y="1281">
+				<path name="JINWON"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="SYS_C009452" fq-name="JINWON.CS_QNA.SYS_C009452" type="fk" pk-ref="7" fk-ref="3"/>
+		<relation name="SYS_C009464" fq-name="JINWON.CS_REVIEW.SYS_C009464" type="fk" pk-ref="7" fk-ref="4"/>
+		<relation name="SYS_C009376" fq-name="JINWON.CUST_ADDR.SYS_C009376" type="fk" pk-ref="7" fk-ref="5"/>
+		<relation name="SYS_C009441" fq-name="JINWON.CUST_CART.SYS_C009441" type="fk" pk-ref="7" fk-ref="6"/>
+		<relation name="SYS_C009477" fq-name="JINWON.CUST_POINT_HISTORY.SYS_C009477" type="fk" pk-ref="7" fk-ref="8"/>
+		<relation name="SYS_C009373" fq-name="JINWON.CUST_SELLER_INFO.SYS_C009373" type="fk" pk-ref="7" fk-ref="9"/>
+		<relation name="SYS_C009381" fq-name="JINWON.CUST_SELLER_RATING.SYS_C009381" type="fk" pk-ref="7" fk-ref="10"/>
+		<relation name="SYS_C009488" fq-name="JINWON.CUST_USER_COUPON.SYS_C009488" type="fk" pk-ref="7" fk-ref="11"/>
+		<relation name="SYS_C009418" fq-name="JINWON.ORD_ORDER.SYS_C009418" type="fk" pk-ref="7" fk-ref="12"/>
+		<relation name="SYS_C009397" fq-name="JINWON.PROD_PRODUCT.SYS_C009397" type="fk" pk-ref="7" fk-ref="19"/>
+		<relation name="SYS_C009426" fq-name="JINWON.ORD_ORDER_ITEM.SYS_C009426" type="fk" pk-ref="12" fk-ref="13"/>
+		<relation name="SYS_C009434" fq-name="JINWON.ORD_RETURN_EXCHANGE.SYS_C009434" type="fk" pk-ref="12" fk-ref="14"/>
+		<relation name="SYS_C009387" fq-name="JINWON.PROD_CATEGORY2.SYS_C009387" type="fk" pk-ref="15" fk-ref="16"/>
+		<relation name="SYS_C009395" fq-name="JINWON.PROD_PRODUCT.SYS_C009395" type="fk" pk-ref="15" fk-ref="19"/>
+		<relation name="SYS_C009396" fq-name="JINWON.PROD_PRODUCT.SYS_C009396" type="fk" pk-ref="16" fk-ref="19"/>
+		<relation name="SYS_C009463" fq-name="JINWON.CS_REVIEW.SYS_C009463" type="fk" pk-ref="19" fk-ref="4"/>
+		<relation name="SYS_C009442" fq-name="JINWON.CUST_CART.SYS_C009442" type="fk" pk-ref="19" fk-ref="6"/>
+		<relation name="SYS_C009427" fq-name="JINWON.ORD_ORDER_ITEM.SYS_C009427" type="fk" pk-ref="19" fk-ref="13"/>
+		<relation name="SYS_C009435" fq-name="JINWON.ORD_RETURN_EXCHANGE.SYS_C009435" type="fk" pk-ref="19" fk-ref="14"/>
+		<relation name="SYS_C009407" fq-name="JINWON.PROD_NOTICE.SYS_C009407" type="fk" pk-ref="19" fk-ref="17"/>
+		<relation name="SYS_C009402" fq-name="JINWON.PROD_OPTION.SYS_C009402" type="fk" pk-ref="19" fk-ref="18"/>
+		<relation name="SYS_C009489" fq-name="JINWON.CUST_USER_COUPON.SYS_C009489" type="fk" pk-ref="23" fk-ref="11"/>
+	</relations>
+</diagram>
