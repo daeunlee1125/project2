@@ -222,16 +222,34 @@ footer .middle {
 
 
 /* =================== 등록하기 버튼 스타일 =================== */
-.register-btn-container {
-    float: right;
-    right: 0px;
-    margin-top: 10px;
+/* 버튼 컨테이너 */
+.banner-actions {
+  display: flex;
+  justify-content: space-between; /* 좌-우 정렬 */
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* 선택삭제 버튼 */
+.delete-btn {
+  background-color: #aaa;
+  border: none;
+  color: white;
+  padding: 13px 32px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.delete-btn:hover {
+  background-color: #888;
 }
 .register-btn {
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #a77ece, #6c3fc9);
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 13px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -304,6 +322,12 @@ footer .middle {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+.modal-content .form-group select {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 .modal-content .form-group .description {
     margin-left: 10px;
     font-size: 12px;
@@ -327,7 +351,7 @@ footer .middle {
     padding: 0 20px 20px;
 }
 .modal-footer button {
-    background-color: #28A745;
+    background: linear-gradient(135deg, #a77ece, #6c3fc9);
     color: white;
     padding: 12px 25px;
     border: none;
@@ -335,9 +359,7 @@ footer .middle {
     cursor: pointer;
     font-size: 16px;
 }
-.modal-footer button:hover {
-    background-color: #218838;
-}
+
 .hidden {
     display: none !important;
 }
