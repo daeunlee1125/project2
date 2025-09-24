@@ -3,10 +3,14 @@ a {
   color: inherit;        /* 부모 요소의 글자색 따라감 */
 }
 
+.main-nav-div {
+    padding-top: 15px;
+}
+
 .main-size {
     width: 1250px;
+    height: 600px;
     margin: 0 auto;
-    margin-top: 30px;
 }
 
 .main-nav{
@@ -20,8 +24,7 @@ a {
 .main-list-headName{
     text-align: center;
     margin-top: 15px;
-    font-weight: bold;
-    font-size: 15pt;
+    font-size: 20pt;
 }
 .main-list-head > hr {
     border: 1.5px solid;
