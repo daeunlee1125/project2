@@ -1,7 +1,9 @@
 /* 로그인 컨테이너 */
 .login-container {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
+    position: relative;
+    top: 60px;
     padding: 40px;
     background: white;
     border-radius: 8px;
