@@ -1,0 +1,195 @@
+/* -------------------- 상품 상세 페이지(view) 스타일 -------------------- */
+
+/* 전체 레이아웃 컨테이너 */
+.product-view-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* 이미지 영역과 정보 영역 사이 간격 */
+    margin-top: 30px;
+}
+
+/* 1. 왼쪽 - 상품 이미지 섹션 */
+.product-image-section {
+    width: 550px;
+    flex-shrink: 0; /* 너비 고정 */
+}
+
+.product-image-section .main-image {
+    width: 100%;
+    height: 550px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.product-image-section .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2. 오른쪽 - 상품 정보 섹션 */
+.product-info-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 80px;
+}
+
+/* 정보 헤더 (브랜드, 상품명, 평점) */
+.info-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+.info-header .brand-store { color: #888; font-size: 14px; }
+.info-header h2 { font-size: 24px; font-weight: 500; margin: 10px 0; }
+.info-header .rating { display: flex; align-items: center; font-size: 14px; }
+.info-header .stars { color: #ffc107; }
+.info-header .rating-score { margin: 0 5px; font-weight: bold; }
+.info-header .review-count { color: #888; }
+
+
+/* 가격 정보 */
+.info-price { margin: 20px 0; }
+.info-price .price-original .original { color: #aaa; text-decoration: line-through; }
+.info-price .price-final { display: flex; align-items: baseline; margin-top: 5px; }
+.info-price .discount-rate { font-size: 28px; color: #fa622f; font-weight: bold; margin-right: 10px; }
+.info-price .final { font-size: 28px; font-weight: bold; }
+.info-price .unit { font-size: 18px; margin-left: 2px; }
+
+/* 배송 정보 */
+.info-delivery {
+    font-size: 14px;
+    color: #333;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 0;
+}
+.info-delivery .delivery-row { display: flex; margin-bottom: 8px; }
+.info-delivery .label { width: 80px; color: #888; }
+.info-delivery .arrival-info { font-weight: bold; }
+
+
+/* 옵션 선택 */
+.info-options {
+    margin-top: auto; /* 옵션을 아래로 밀어냄 */
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.info-options select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+/* -------------------- 선택된 옵션 스타일 추가 -------------------- */
+
+#selected-options-list {
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.selected-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.selected-item .item-name {
+    flex-grow: 1;
+}
+
+.quantity-counter {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.quantity-counter button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quantity-counter .quantity-input {
+    width: 40px;
+    height: 28px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    font-size: 14px;
+}
+
+.selected-item .item-total-price {
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.selected-item .btn-remove {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* ----------------------------------------------------------------- */
+
+/* 최종 가격 및 구매 버튼 */
+.info-purchase {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.info-purchase .total-price {
+    text-align: right;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.info-purchase .total-price strong {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fa622f;
+    margin-left: 10px;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: auto auto 1fr 1fr;
+    gap: 10px;
+}
+.action-buttons .btn {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.action-buttons .btn-wish, .action-buttons .btn-gift {
+    background-color: #fff;
+}
+.action-buttons .btn-cart {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+.action-buttons .btn-buy {
+    background-color: #fa622f;
+    color: #fff;
+    border-color: #fa622f;
+}
