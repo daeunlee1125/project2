@@ -1,16 +1,4 @@
 
-$(document).ready(function(){
-    $('.bxslider').bxSlider({
-      auto: true,       // 자동 슬라이드
-      pause: 4000,      // 대기시간 (ms)
-      speed: 500,       // 전환 속도
-      pager: true,      // 하단 동그라미 네비게이션
-      controls: true,    // 이전/다음 버튼
-      adaptiveHeight: true
-    });
-  });
-
-
 const btn = document.getElementById("categoryBtn");
 const box = document.getElementById("categoryBox");
 
@@ -42,6 +30,80 @@ document.addEventListener("click", () => {
     btn.style.color = "black"; // 버튼 색도 초기화
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelector(".slides");
+  const slideImages = document.querySelectorAll(".slides img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const dots = document.querySelectorAll(".indicators span");
+
+  let currentIndex = 1; // 클론 때문에 1부터 시작
+  const totalSlides = slideImages.length;
+
+  // 앞뒤 클론 추가
+  const firstClone = slideImages[0].cloneNode(true);
+  const lastClone = slideImages[totalSlides - 1].cloneNode(true);
+  slides.appendChild(firstClone);
+  slides.insertBefore(lastClone, slides.firstChild);
+
+  const newSlides = document.querySelectorAll(".slides img");
+  const slideCount = newSlides.length;
+
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  // 슬라이드 이동 함수
+  function goToSlide(index) {
+    slides.style.transition = "transform 0.5s ease-in-out";
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+
+    // 인디케이터 갱신
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[(currentIndex - 1 + totalSlides) % totalSlides].classList.add("active");
+  }
+
+  // 다음 버튼
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex >= slideCount - 1) return;
+    goToSlide(currentIndex + 1);
+  });
+
+  // 이전 버튼
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex <= 0) return;
+    goToSlide(currentIndex - 1);
+  });
+
+  // transition 끝났을 때 위치 리셋
+  slides.addEventListener("transitionend", () => {
+    if (newSlides[currentIndex].isSameNode(firstClone)) {
+      slides.style.transition = "none";
+      currentIndex = 1;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+    if (newSlides[currentIndex].isSameNode(lastClone)) {
+      slides.style.transition = "none";
+      currentIndex = totalSlides;
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  });
+
+  // 인디케이터 클릭
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => {
+      goToSlide(idx + 1); // 클론 때문에 +1
+    });
+  });
+
+  // 초기화
+  goToSlide(1);
+});
+
+
+
+
+
 
 
 
