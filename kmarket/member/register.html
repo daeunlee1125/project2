@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="/kmarket/inc/css/index.css">
-        <link rel="stylesheet" href="/kmarket/inc/css/member/register.css">
+        <link rel="stylesheet" href="/kmarket/inc/css/member.css">
     </head>
     <body>
         <header>
@@ -81,86 +81,89 @@
                 </div>
               </div>
               <main>
-                <div class="signup-container">
-                  <div class="signup-title">일반 회원가입</div>
-                  <form class="signup-form">
-                    <div class="form-row">
-                      <div class="form-label">아이디</div>
-                      <div class="form-input">
-                        <input type="text" class="input-medium" placeholder="">
-                        <span class="help-text">영문, 숫자 4~12자 설정</span>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">비밀번호</div>
-                      <div class="form-input">
-                        <input type="password" class="input-medium" placeholder="">
-                        <span class="help-text">영문, 숫자, 특수문자 8~12자 설정</span>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">비밀번호확인</div>
-                      <div class="form-input">
-                        <input type="password" class="input-medium" placeholder="">
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">이름</div>
-                      <div class="form-input">
-                        <input type="text" class="input-medium" placeholder="이름입력">
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">생년월일</div>
-                      <div class="form-input">
-                        <input type="text" class="input-medium" placeholder="날짜선택">
-                        <span class="calendar-icon">📅</span>
-                      </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">성별</div>
-                      <div class="form-input">
-                        <div class="radio-group">
-                          <label><input type="radio" name="gender" value="남"> 남</label>
-                          <label><input type="radio" name="gender" value="여"> 여</label>
+                 <div class="signup-container">
+                  <div class="signup-header">
+                    일반 회원가입
+                  </div>
+                  <div class="signup-form">
+                    <form>
+                      <div class="form-row">
+                        <div class="form-label">아이디</div>
+                        <div class="form-input">
+                          <input type="text" placeholder="">
+                          <span class="input-help">영문, 숫자 4~12자 설정</span>
                         </div>
                       </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">EMAIL</div>
-                      <div class="form-input">
-                        <input type="email" class="input-large" placeholder="이메일입력">
-                        <button type="button" class="btn btn-blue">이메일 인증</button>
+                      
+                      <div class="form-row">
+                        <div class="form-label">비밀번호</div>
+                        <div class="form-input">
+                          <input type="password" placeholder="">
+                          <span class="input-help">영문, 숫자, 특수문자 8~12자 설정</span>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">휴대폰</div>
-                      <div class="form-input">
-                        <input type="tel" class="input-large" placeholder="휴대폰입력">
-                        <button type="button" class="btn btn-blue">휴대폰 인증</button>
+                      
+                      <div class="form-row section-end">
+                        <div class="form-label">비밀번호확인</div>
+                        <div class="form-input">
+                          <input type="password" placeholder="">
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div class="form-row">
-                      <div class="form-label">주소</div>
-                      <div class="form-input">
+                      
+                      <div class="form-row section-start">
+                        <div class="form-label">이름</div>
+                        <div class="form-input">
+                          <input type="text" placeholder="이름입력">
+                        </div>
+                      </div>
+                      
+                      <div class="form-row">
+                        <div class="form-label">생년월일</div>
+                        <div class="form-input">
+                          <input type="date" style="width: 150px;">
+                        </div>
+                      </div>
+                      
+                      <div class="form-row">
+                        <div class="form-label">성별</div>
+                        <div class="form-input">
+                          <div class="radio-group">
+                            <label><input type="radio" name="gender" value="male" checked> 남</label>
+                            <label><input type="radio" name="gender" value="female"> 여</label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="form-row">
+                        <div class="form-label">EMAIL</div>
+                        <div class="form-input">
+                          <input type="email" placeholder="이메일입력">
+                          <button type="button" class="btn-check">이메일 인증</button>
+                        </div>
+                      </div>
+                      
+                      <div class="form-row">
+                        <div class="form-label">휴대폰</div>
+                        <div class="form-input">
+                          <input type="text" placeholder="휴대폰입력">
+                          <button type="button" class="btn-check">휴대폰 인증</button>
+                        </div>
+                      </div>
+                      
+                      <div class="address-section">
+                        <div class="address-label">주소</div>
                         <div class="address-inputs">
-                          <input type="text" placeholder="우편번호검색">
+                          <input type="text" placeholder="우편번호검색클릭">
                           <input type="text" placeholder="기본주소검색">
                           <input type="text" placeholder="상세주소입력">
                         </div>
                       </div>
-                    </div>
-                    
-                    <button type="submit" class="signup-btn">회원가입</button>
-                  </form>
+                      
+                      <div class="signup-submit">
+                        <button type="submit" class="btn-signup">회원가입</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </main>
             </div>
