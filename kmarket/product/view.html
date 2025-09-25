@@ -240,11 +240,13 @@
                                     <span class="brand-name">지오다노</span>
                                     <span class="product-name">베이직 레더 벨트 130004</span>
                                 </h2>
-                                <div class="rating">
-                                    <span class="stars">★★★★★</span>
-                                    <span class="rating-score">4.6</span>
-                                    <span class="review-count">(152건)</span>
-                                </div>
+                                <a href="#"> <!-- 리뷰로 넘어가는 링크 -->
+                                    <div class="rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span class="rating-score">4.6</span>
+                                        <span class="review-count">(152건)</span>
+                                    </div>
+                                </a>
                             </div>
 
                             <div class="info-price">
@@ -300,15 +302,57 @@
                                     <button class="btn btn-buy">바로구매</button>
                                 </div>
                             </div>
+
+                            <div class="banner">
+                                <img src="/kmarket/inc/image/banner-top.jpg" alt="배너 광고">
+                            </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="pagination-container">
-                    <div class="pagination">
+                
+                <div class="product-detail">
+                    <nav class="product-detail-nav">
+                        <ul>
+                            <li class="active"><a href="#detail-info">상품상세정보</a></li>
+                            <li><a href="#detail-review">고객리뷰 (0)</a></li>
+                            <li><a href="#detail-exchange">교환/반품 안내</a></li>
+                        </ul>
+                    </nav>
+                    <div class="nav-placeholder"></div>
+
+                    <div id="detail-info" class="detail-content">
+                        <p style="text-align: center; padding: 40px 0; font-size: 18px; color: #888;">
+                            상품 번호: 1000722586634<br>
+                            모델 번호: Y0251LCL158S1N00125F
+                        </p>
+                        <img src="/kmarket/inc/image/info.avif" alt="SSG Guarantee">
+                        <img src="/kmarket/inc/image/productDetail.jpg" alt="짧은 상세 이미지">
+
+                        <div class="long-detail-container">
+                            <img src="/kmarket/inc/image/productDetail2.jpg" alt="긴 상세 이미지" class="long-detail-image">
+                            <div class="fade-overlay"></div>
+                        </div>
+                        <button type="button" class="toggle-detail-btn">상세정보 펼쳐보기 ▼</button>
                     </div>
+
+                    <div id="detail-review" class="detail-content">
+                        <h3 style="padding: 100px 0; text-align: center; color: #aaa;">등록된 고객리뷰가 없습니다.</h3>
+                    </div>
+
+                    <div class="pagination-container">
+
+                    </div>
+
+                    <div id="detail-exchange" class="detail-content">
+                        <h3 style="padding: 100px 0; text-align: center; color: #aaa;">교환/반품 안내 정보가 여기에 표시됩니다.</h3>
+                    </div>
+
+                    
                 </div>
-        </div>
+
+
+            </div>
         </main>
     </div>
     </div>

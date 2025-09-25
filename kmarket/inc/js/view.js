@@ -84,3 +84,118 @@ function updateGrandTotal() {
     $('#grand-total-price').text(grandTotal.toLocaleString() + '원');
 }
 });
+
+
+$(document).ready(function() {
+    
+    // ==========================================================
+    // 1. 상세정보 펼치기/접기 기능
+    // ==========================================================
+    $('.toggle-detail-btn').on('click', function() {
+        const $container = $('.long-detail-container');
+        const $button = $(this);
+
+        $container.toggleClass('expanded');
+
+        if ($container.hasClass('expanded')) {
+            $button.text('상세정보 접기 ▲');
+        } else {
+            $button.text('상세정보 펼쳐보기 ▼');
+        }
+        
+        // ★★★ 변경점: 펼치거나 접은 후 섹션 위치를 다시 계산
+        recalculateOffsets();
+    });
+
+    // ==========================================================
+    // 2. Sticky 네비게이션 & Scrollspy 기능
+    // ==========================================================
+    const $nav = $('.product-detail-nav');
+    if ($nav.length) {
+        
+        const $navLinks = $nav.find('a');
+        const $navItems = $nav.find('li');
+        const $placeholder = $('.nav-placeholder');
+        let navOffsetTop = $nav.offset().top; // 초기 위치
+        const navHeight = $nav.outerHeight();
+        
+        let isAnimating = false;
+        let sectionOffsets = []; // 섹션 위치 정보를 담을 배열
+
+        $placeholder.height(navHeight);
+
+        // ★★★ 변경점: 섹션 위치 계산 로직을 별도 함수로 분리
+        function recalculateOffsets() {
+            sectionOffsets = []; // 배열 초기화
+            $navLinks.each(function() {
+                const targetId = $(this).attr('href');
+                const $target = $(targetId);
+                if ($target.length) {
+                    sectionOffsets.push({
+                        id: targetId,
+                        top: $target.offset().top
+                    });
+                }
+            });
+            // 네비게이션의 원래 위치도 다시 계산 (필요 시)
+            navOffsetTop = $nav.offset().top;
+        }
+
+        recalculateOffsets(); // 페이지 로드 시 최초 1회 계산
+
+        $(window).on('scroll', function() {
+            const scrollTop = $(this).scrollTop();
+
+            if (scrollTop >= navOffsetTop) {
+                $nav.addClass('sticky');
+                $placeholder.show();
+            } else {
+                $nav.removeClass('sticky');
+                $placeholder.hide();
+            }
+            
+            if (!isAnimating) {
+                updateActiveNav(scrollTop);
+            }
+        });
+
+        function updateActiveNav(scrollTop) {
+            let currentSectionId = null;
+            const scrollPosition = scrollTop + navHeight + 20;
+
+            for (const section of sectionOffsets) {
+                if (scrollPosition >= section.top) {
+                    currentSectionId = section.id;
+                }
+            }
+            
+            $navItems.removeClass('active');
+            if (currentSectionId) {
+                $nav.find(`a[href="${currentSectionId}"]`).parent('li').addClass('active');
+            }
+        }
+
+        $navLinks.on('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = $(this).attr('href');
+            const $target = $(targetId);
+
+            if ($target.length) {
+                isAnimating = true;
+                
+                // 클릭 시점의 정확한 위치를 위해 offset을 다시 계산할 수 있음
+                const scrollToPosition = $target.offset().top - navHeight;
+                
+                $navItems.removeClass('active');
+                $(this).parent('li').addClass('active');
+
+                $('html, body').stop().animate({
+                    scrollTop: scrollToPosition
+                }, 500, function() {
+                    isAnimating = false;
+                });
+            }
+        });
+    }
+});
