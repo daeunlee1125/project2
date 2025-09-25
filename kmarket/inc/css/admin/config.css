@@ -458,3 +458,128 @@
     font-size: 14px;
     color: #555;
 }
+
+
+
+
+.table-5 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+
+  border-radius: 6px;
+}
+.table-5 tr th {
+    height: 40px;
+    background-color:#f3effa; /* 연보라 배경 */
+    border: 1px solid #ddd;
+    color: #4a2f73; /* 보라 포인트 */
+
+}
+.table-5 tr td {
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #eee;
+    color: #444;
+    padding: 3px;
+
+}
+.table-5 tr:hover td {
+  background: #faf7ff;
+}
+
+.table-5 td input {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
+.table-5 td input:hover {
+    font-weight: bold;
+    color: #4a2f73;
+}
+.table-5 td img {
+  width: 100%;      /* td 너비에 맞춤 */
+  height: 100%;     /* td 높이에 맞춤 */
+  object-fit: cover; /* 비율 유지하면서 넘치는 부분은 잘라냄 */
+}
+
+.h3-5 {
+    margin: 7px 0px 20px 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a2f73; /* 진한 보라 */
+    position: relative;
+}
+
+.h3-5::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 35px;
+  height: 3px;
+  background: linear-gradient(90deg, #a77ece, #6c3fc9);
+  border-radius: 2px;
+}
+
+.gray-5 {
+    background: linear-gradient(90deg, #f1f3f2, #ececec);
+    height: 38px;
+    padding-left: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    border-left: 4px solid #a77ece; /* 포인트 */
+}
+
+
+.page-5 {
+    text-align: center;
+    margin-top: 5px;
+}
+.page-5 > a {
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #d7d7d7;
+    background: #f2f2f2;
+}
+
+.page-5 > .current-5 {
+    border: 1px solid #6d6d6d;
+    background: #888;
+    color: #fff;
+}
+
+
+
+
+.modal-content .form-group textarea {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 200px;
+}
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modal-table th {
+  width: 150px;
+  text-align: left;
+  font-weight: bold;
+  padding: 8px;
+
+}
+
+.modal-table td {
+  padding: 8px;
+}
+.modal-table .changed-5{
+  height: 200px;
+}
