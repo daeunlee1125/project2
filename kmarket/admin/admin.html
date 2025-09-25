@@ -10,6 +10,7 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="/kmarket/inc/css/admin/common.css">
     <link rel="stylesheet" href="/kmarket/inc/css/admin/admin.css">
+    <link rel="stylesheet" href="/kmarket/inc/css/admin/main.css"
 
 </head>
 <body>
@@ -106,16 +107,127 @@
 
                 </div>
                 <main>
+                    <div class="admin-main-box">
+                        <!-- 집계현황 -->
+                        <section class="dashboard">
+                            <h4>집계현황</h4>
+                            <div class="dashboard-charts">
+                                <div class="chart-box">
+                                    <h5>결제현황</h5>
+                                    <img src="/kmarket/inc/image/chart1.png" alt="결제현황 차트">
+                                </div>
+                                <div class="chart-box">
+                                    <h5>주요매출</h5>
+                                    <img src="/kmarket/inc/image/chart2.png" alt="매출 차트">
+                                </div>
+                            </div>
+                    </section>
+
+                    <section class="status">
+                        <h4>운영현황</h4>
+                        <table class="status-bottom">
+                            <thead>
+                                <tr>
+                                    <th>입금대기</th>
+                                    <th>배송준비</th>
+                                    <th>취소요청</th>
+                                    <th>교환요청</th>
+                                    <th>반품요청</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="main-row">
+                                    <td>101</td>
+                                    <td>124</td>
+                                    <td>14</td>
+                                    <td>7</td>
+                                    <td>24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="status-bottom">
+                            <thead>
+                                <tr>
+                                    <th>주문건수</th>
+                                    <th>주문금액</th>
+                                    <th>회원가입</th>
+                                    <th>방문자 수</th>
+                                    <th>문의 게시물</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="main-row">
+                                    <td>131</td>
+                                    <td>3,700,000</td>
+                                    <td>232</td>
+                                    <td>2,500</td>
+                                    <td>25</td>
+                                </tr>
+                                <tr class="sub-row">
+                                    <td>
+                                        <table class="mini-table">
+                                            <tr><td>오늘</td><td>60</td></tr>
+                                            <tr><td>어제</td><td>71</td></tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="mini-table">
+                                            <tr><td>오늘</td><td>1,200,000</td></tr>
+                                            <tr><td>어제</td><td>2,500,000</td></tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="mini-table">
+                                            <tr><td>오늘</td><td>102</td></tr>
+                                            <tr><td>어제</td><td>130</td></tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="mini-table">
+                                            <tr><td>오늘</td><td>1,300</td></tr>
+                                            <tr><td>어제</td><td>1,200</td></tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="mini-table">
+                                            <tr><td>오늘</td><td>13</td></tr>
+                                            <tr><td>어제</td><td>12</td></tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
 
 
 
-                    
-                    <!-- 여기 안에서 작업 -->
-                    <!-- 버튼은 내용 길어지면 자동으로 내려갑니당 -->
-                    <div class="register-btn-container">
-                        <button class="register-btn" id="openModalBtn">등록하기</button>
-                    </div>
-                </main>
+
+
+                    <!-- 공지사항 & 고객문의 -->
+                    <section class="board">
+                        <div class="board-box">
+                            <h4>공지사항</h4>
+                            <ul>
+                                <li>[안내] 해외직구세금면제주의 <span>22.10.31</span></li>
+                                <li>[안내] 로젠택배 파업 / 교환수거지연 <span>22.10.31</span></li>
+                                <li>[안내] 구매회원등급제약관개정 <span>22.10.31</span></li>
+                                <li>[안내] 개인정보취급방침약관개정 <span>22.10.31</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="board-box">
+                            <h4>고객문의</h4>
+                            <ul>
+                                <li>[가입] 가입문의내용 <span>chh**</span> <span>22.10.31</span></li>
+                                <li>[탈퇴] 탈퇴문의내용 <span>chh**</span> <span>22.10.31</span></li>
+                                <li>[회원정보] 회원정보문의내용 <span>chh**</span> <span>22.10.31</span></li>
+                                <li>[회원정보] 회원정보문의내용 <span>chh**</span> <span>22.10.31</span></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </main>
             </div>
         </div>
     </div>
