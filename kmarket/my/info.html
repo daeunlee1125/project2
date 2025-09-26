@@ -1,11 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>마이페이지 나의 설정</title>
+    <style>
+/* ===========================================기본 레이아웃=== */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* 컨테이너 너비를 250px(사이드바) + 810px(콘텐츠)로 설정 */
+main.container {
+    flex: 1;
+    background: #ffffff;
+    width: 1060px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.company.menu a.active {
+    color: orangered;
+    font-weight: 700;
+}
+
+/* ===========================================헤더 === */
+header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.main-header {
+    max-width: 1060px; /* 컨테이너 너비와 맞춤 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-left .logo {
+    height: 40px;
+    vertical-align: middle;
+}
+.header-left span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.header-right a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+.header-right a:hover {
+    color: #000;
+}
+.header-right .login-menu { display: none; }
+.header-right .user-menu { display: flex; }
+
+body.logged-in .login-menu { display: none; }
+body.logged-in .user-menu { display: flex; }
+
+/* ===========================================푸터 === */
+footer {
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #555;
+    position: relative;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1060px; /* 컨테이너 너비와 맞춤 */
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    position: relative;
+}
+.footer-sns {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.footer-sns a {
+    margin-left: 15px;
+}
+.footer-sns img {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.footer-sns img:hover {
+    transform: scale(1.15);
+}
+.footer-top { margin-bottom: 10px; }
+.footer-top h2 {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    margin-right: 12px;
+    font-weight: bold;
+    color: #222;
+}
+.footer-top a {
+    margin-right: 8px;
+    font-size: 13px;
+    color: #d33;
+    text-decoration: none;
+    border: 1px solid #d33;
+    padding: 3px 7px;
+    border-radius: 3px;
+}
+.footer-info { margin-bottom: 10px; font-size: 13px; color: #444; }
+.footer-info p { margin: 2px 0; }
+.footer-bottom { font-size: 13px; color: #333; }
+
+/* ===========================================본문 === */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+.sidebar h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    margin-bottom: 10px;
+}
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+}
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #eee;
+}
+
+/* 콘텐츠 너비를 810px로 설정 */
+.content {
+    width: 810px;
+    padding: 20px;
+}
+
+.main-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.main-content-header .info-summary {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+.main-content-header .info-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.main-content-header .info-item .count {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.banner {
+    width: 100%;
+    height: 86px;
+    background-color: #eee;
+    text-align: center;
+    line-height: 86px;
+    margin-bottom: 20px;
+}
+
+.info-section {
+    margin-top: 20px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th, .info-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.info-table th {
+    width: 150px;
+    background-color: #f9f9f9;
+}
+
+.info-table input[type="text"],
+.info-table input[type="email"],
+.info-table select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.info-table input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.info-table .email-input-group,
+.info-table .phone-input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-table .address-input {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.info-table button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #946ccf;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+
+.info-table .zip-code-btn {
+    margin-left: 5px;
+}
+
+.button-group {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-group .save-btn {
+    background-color: #946ccf;
+    color: #fff;
+}
+
+
+        
+.withdrawal-btn {
+    padding: 8px 15px;
+    border: 1px solid #dc3545;
+    background-color: #dc3545;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.withdrawal-btn:hover {
+    background-color: #c82333;
+}
+
+.address-row td > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.address-row input {
+    width: 200px;
+}
+
+.address-row input[type="text"]:nth-child(2) {
+    flex-grow: 1;
+}
+
+.info-table tr:nth-child(6) input:first-child {
+    width: 100px;
+}
+
+.info-table tr:nth-child(6) input:last-child {
+    width: 100px;
+}
+
+.info-table tr:nth-child(7) div:nth-child(1) input {
+    width: 100px;
+}
+
+.info-table tr:nth-child(7) div:nth-child(3) input {
+    width: 300px;
+}
+
+    </style>
 </head>
-<body>
-    
+<body class="logged-in">
+    <header>
+        <div class="main-header">
+            <div class="header-left">
+                <a href="./index.html">
+                    <img src="../image/logo.jpg" alt="SHOPLY 로고" class="logo">
+                </a>
+                <span>쇼핑의 플레이리스트</span>
+            </div>
+            <div class="header-right">
+                <div class="login-menu">
+                    <a href="./login.html">로그인</a> |
+                    <a href="./register.html">회원가입</a> |
+                </div>
+                <div class="user-menu">
+                    <a href="#">로그아웃</a> |
+                    <a href="./my/home.html">마이페이지</a> |
+                    <a href="./cart.html">장바구니</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="sidebar">
+            <h2>나의 쇼핑 정보</h2>
+            <ul>
+                <li><a href="home.html">마이페이지 홈</a></li>
+                <li><a href="order.html">전체주문내역</a></li>
+                <li><a href="point.html">포인트내역</a></li>
+                <li><a href="coupon.html">쿠폰</a></li>
+                <li><a href="review.html">나의리뷰</a></li>
+                <li><a href="qna.html">문의하기</a></li>
+                <li><a href="info.html" class="active">나의설정</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="main-content-header">
+                <div class="info-summary">
+                    <div class="info-item">
+                        <div class="count">2</div>
+                        <div>주문</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="count">1</div>
+                        <div>쿠폰</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="count">1,000</div>
+                        <div>포인트</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="count">1</div>
+                        <div>문의</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner">
+                810 x 86 배너 광고
+            </div>
+
+            <div class="info-section">
+                <h3>나의 설정</h3>
+                <form>
+                    <table class="info-table">
+                        <tbody>
+                            <tr>
+                                <th>사용자 ID</th>
+                                <td>chh****</td>
+                            </tr>
+                            <tr>
+                                <th>비밀번호</th>
+                                <td>
+                                    비밀번호수정
+                                    <button type="button" onclick="window.location.href='password_confirm.html'">변경</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>이름</th>
+                                <td>김*학</td>
+                            </tr>
+                            <tr>
+                                <th>생년월일</th>
+                                <td>1983년 05월 03일</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>
+                                    <input type="text" id="emailId" value="chhak0503">@
+                                    <select id="emailDomain" onchange="checkEmailDomain()">
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="daum.net">daum.net</option>
+                                        <option value="self">직접입력</option>
+                                    </select>
+                                    <input type="text" id="emailInput" placeholder="직접입력" style="display: none;">
+                                    <button type="button" onclick="editEmail()">수정하기</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>휴대폰</th>
+                                <td>
+                                    <input type="text" value="010" style="width: 50px;"> -
+                                    <input type="text" value="1234" style="width: 50px;"> -
+                                    <input type="text" value="5678" style="width: 50px;">
+                                    <button type="button" onclick="editPhone()">수정하기</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소</th>
+                                <td>
+                                    <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+                                        <input type="text" placeholder="우편번호" style="width: 80px;">
+                                        <button type="button" onclick="searchAddress()">주소검색</button>
+                                    </div>
+                                    <input type="text" class="address-input" placeholder="기본주소입력" style="width: 400px;">
+                                    <input type="text" class="address-input" placeholder="상세주소입력" style="width: 400px; margin-top: 5px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>탈퇴</th>
+                                <td>
+                                    <button type="button" class="withdrawal-btn" onclick="confirmWithdrawal()">탈퇴하기</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="button-group">
+                        <button type="submit" class="save-btn" onclick="saveChanges()">수정하기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <h2>(주)샵플리닷컴</h2>
+                <a href="#">사업자정보확인</a>
+                <a href="#">소비자보호 서비스 가입사실확인</a>
+            </div>
+            <div class="footer-info">
+                <p>대표자: 홍길동 | 사업자등록번호: 123-45-67890</p>
+                <p>부산광역시 부산진구 중앙대로 103</p>
+                <p>통신판매업 신고번호: 제2025-부산진구-0001호</p>
+                <p>개인정보보호책임자: 김민수 | FAX: 051-123-4567 | Email: shoply@shoply.com</p>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">개인정보처리방침</a> |
+                    <a href="#">영상정보처리기기 운영·관리방침</a> |
+                    <a href="#">고객센터</a> |
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="footer-sns">
+                    <a href="#"><img src="../image/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="../image/instagram.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function enableEdit(field) {
+            // 이전에 작성된 함수
+        }
+
+        function searchAddress() {
+            // 이전에 작성된 함수
+        }
+
+        function saveChanges() {
+            alert('수정 사항이 저장되었습니다.');
+        }
+
+        function confirmWithdrawal() {
+            if (confirm("정말 회원 탈퇴를 하시겠습니까? 탈퇴 시 모든 정보가 삭제되며 복구할 수 없습니다.")) {
+                alert("회원 탈퇴가 완료되었습니다.");
+                // 실제 서버로 탈퇴 요청을 보내는 로직을 여기에 추가합니다.
+            }
+        }
+
+        // 로그인 상태 시뮬레이션
+        const isLoggedIn = true;
+        const loginMenu = document.querySelector('.login-menu');
+        const userMenu = document.querySelector('.user-menu');
+
+        if (isLoggedIn) {
+            document.body.classList.add('logged-in');
+        }
+    </script>
 </body>
 </html>
