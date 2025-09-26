@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="/kmarket/inc/css/index.css">
-        <!-- bxSlider -->
+        <link rel="stylesheet" href="/kmarket/inc/css/member_find.css">
     </head>
     <body>
         <header>
@@ -49,6 +49,7 @@
             </div>
           </div>
         </header>
+        
         <div class="container">
             <div class="wrapper">
               <!-- 전체 카테고리 누르면 튀어나오는 메뉴창 -->
@@ -81,10 +82,79 @@
                 </div>
               </div>
               <main>
-                
+                <div class="id-find-container">
+                    <h2 class="id-find-title">아이디 찾기</h2>
+                    
+                    <div class="tab-container">
+                        <div class="tab-buttons">
+                            <div class="tab-button active" data-tab="email">이메일 인증</div>
+                            <div class="tab-button" data-tab="phone">휴대폰 인증</div>
+                        </div>
+                        
+                        <!-- 이메일 인증 탭 -->
+                        <div id="email-tab" class="tab-content active">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name-email">이름</label>
+                                    <input type="text" id="name-email" placeholder="이름 입력">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">이메일</label>
+                                    <div class="input-group">
+                                        <input type="email" id="email" placeholder="이메일 입력">
+                                        <button type="button" class="btn-verify">인증번호 받기</button>
+                                    </div>
+                                    <div class="input-group" style="margin-top: 10px;">
+                                        <input type="text" placeholder="인증번호 입력">
+                                        <button type="button" class="btn-verify">확인</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="verification-info">
+                                    회원가입시 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.<br>
+                                    인증번호를 입력 후 확인 버튼을 누르세요.
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- 휴대폰 인증 탭 -->
+                        <div id="phone-tab" class="tab-content">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name-phone">이름</label>
+                                    <input type="text" id="name-phone" placeholder="이름 입력">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">핸드폰번호</label>
+                                    <div class="input-group">
+                                        <input type="tel" id="phone" placeholder="핸드폰번호 입력">
+                                        <button type="button" class="btn-verify">인증번호 받기</button>
+                                    </div>
+                                    <div class="input-group" style="margin-top: 10px;">
+                                        <input type="text" placeholder="인증번호 입력">
+                                        <button type="button" class="btn-verify">확인</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="verification-info">
+                                    회원가입시 입력한 핸드폰번호가 같아야, 인증번호를 받을 수 있습니다.<br>
+                                    인증번호를 입력 후 확인 버튼을 누르세요.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" class="btn btn-cancel">취소</button>
+                        <button type="button" class="btn btn-submit">다음</button>
+                    </div>
+                </div>
               </main>
             </div>
         </div>
+        
         <footer>
           <div class="top-footer">
             <div class="footer-wrapper">
@@ -113,6 +183,30 @@
             </div>   
           </div>
         </footer>
-    </body>
+
     <script src="/kmarket/inc/js/index.js"></script>
+    <script>
+            // 탭 전환 기능
+            document.addEventListener('DOMContentLoaded', function() {
+                const tabButtons = document.querySelectorAll('.tab-button');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const targetTab = this.getAttribute('data-tab');
+                        
+                        // 모든 탭 버튼 비활성화
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                        // 현재 클릭된 탭 버튼 활성화
+                        this.classList.add('active');
+                        
+                        // 모든 탭 콘텐츠 숨기기
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        // 해당 탭 콘텐츠 보이기
+                        document.getElementById(targetTab + '-tab').classList.add('active');
+                    });
+                });
+            });
+        </script>
+    </body>
 </html>
