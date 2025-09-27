@@ -1,95 +1,93 @@
 $(document).ready(function() {
-const basePrice = parseInt($('.product-info-section').data('product-price'));
+    
+    // ==========================================================
+    // 1. 옵션 선택 및 가격 계산 기능
+    // ==========================================================
+    const basePrice = parseInt($('.product-info-section').data('product-price'));
 
-// 색상 또는 사이즈 선택 시 이벤트 처리
-$('#select-color, #select-size').on('change', function() {
-    const color = $('#select-color').val();
-    const size = $('#select-size').val();
+    // basePrice 값이 유효한 숫자인지 확인
+    if (!isNaN(basePrice)) {
+        // 색상 또는 사이즈 선택 시 이벤트 처리
+        $('#select-color, #select-size').on('change', function() {
+            const color = $('#select-color').val();
+            const size = $('#select-size').val();
 
-    // 색상과 사이즈가 모두 선택되었는지 확인
-    if (color && size) {
-        const optionText = `베이직 레더 벨트 / ${color} / ${size}`;
-        
-        // 이미 추가된 옵션인지 확인
-        let isDuplicate = false;
-        $('.selected-item').each(function() {
-            if ($(this).find('.item-name').text() === optionText) {
-                isDuplicate = true;
+            if (color && size) {
+                const optionText = `베이직 레더 벨트 / ${color} / ${size}`;
+                
+                let isDuplicate = false;
+                $('.selected-item').each(function() {
+                    if ($(this).find('.item-name').text() === optionText) {
+                        isDuplicate = true;
+                    }
+                });
+
+                if (isDuplicate) {
+                    alert('이미 추가된 옵션입니다.');
+                } else {
+                    const newItemHtml = `
+                        <div class="selected-item">
+                            <span class="item-name">${optionText}</span>
+                            <div class="quantity-counter">
+                                <button class="btn-minus">-</button>
+                                <input type="text" class="quantity-input" value="1" readonly>
+                                <button class="btn-plus">+</button>
+                            </div>
+                            <span class="item-total-price">${basePrice.toLocaleString()}원</span>
+                            <button class="btn-remove">×</button>
+                        </div>`;
+                    
+                    $('#selected-options-list').append(newItemHtml);
+                }
+
+                $('#select-color').val('');
+                $('#select-size').val('');
+                
+                updateGrandTotal();
             }
         });
 
-        if (isDuplicate) {
-            alert('이미 추가된 옵션입니다.');
-        } else {
-            // 선택된 상품 HTML 생성
-            const newItemHtml = `
-                <div class="selected-item">
-                    <span class="item-name">${optionText}</span>
-                    <div class="quantity-counter">
-                        <button class="btn-minus">-</button>
-                        <input type="text" class="quantity-input" value="1" readonly>
-                        <button class="btn-plus">+</button>
-                    </div>
-                    <span class="item-total-price">${basePrice.toLocaleString()}원</span>
-                    <button class="btn-remove">×</button>
-                </div>`;
+        // 수량 변경 및 삭제 버튼 이벤트 (이벤트 위임)
+        $('#selected-options-list').on('click', 'button', function() {
+            const $item = $(this).closest('.selected-item');
+            const $quantityInput = $item.find('.quantity-input');
+            let quantity = parseInt($quantityInput.val());
+
+            if ($(this).hasClass('btn-plus')) {
+                quantity++;
+            } else if ($(this).hasClass('btn-minus')) {
+                if (quantity > 1) {
+                    quantity--;
+                }
+            } else if ($(this).hasClass('btn-remove')) {
+                $item.remove();
+            }
+
+            if ($quantityInput.length > 0) {
+                $quantityInput.val(quantity);
+            }
+            updateGrandTotal();
+        });
+
+        // 총 금액 계산 및 업데이트 함수
+        function updateGrandTotal() {
+            let grandTotal = 0;
+            $('.selected-item').each(function() {
+                const $item = $(this);
+                const quantity = parseInt($item.find('.quantity-input').val());
+                const itemTotal = basePrice * quantity;
+                
+                $item.find('.item-total-price').text(itemTotal.toLocaleString() + '원');
+                
+                grandTotal += itemTotal;
+            });
             
-            $('#selected-options-list').append(newItemHtml);
+            $('#grand-total-price').text(grandTotal.toLocaleString() + '원');
         }
-
-        // 선택 후 드롭다운 초기화
-        $('#select-color').val('');
-        $('#select-size').val('');
-        
-        // 총 금액 업데이트
-        updateGrandTotal();
-    }
-});
-
-// 수량 변경 및 삭제 버튼 이벤트 (이벤트 위임)
-$('#selected-options-list').on('click', 'button', function() {
-    const $item = $(this).closest('.selected-item');
-    const $quantityInput = $item.find('.quantity-input');
-    let quantity = parseInt($quantityInput.val());
-
-    if ($(this).hasClass('btn-plus')) {
-        quantity++;
-    } else if ($(this).hasClass('btn-minus')) {
-        if (quantity > 1) {
-            quantity--;
-        }
-    } else if ($(this).hasClass('btn-remove')) {
-        $item.remove();
     }
 
-    $quantityInput.val(quantity);
-    updateGrandTotal();
-});
-
-// 총 금액 계산 및 업데이트 함수
-function updateGrandTotal() {
-    let grandTotal = 0;
-    $('.selected-item').each(function() {
-        const $item = $(this);
-        const quantity = parseInt($item.find('.quantity-input').val());
-        const itemTotal = basePrice * quantity;
-        
-        // 개별 항목 가격 업데이트
-        $item.find('.item-total-price').text(itemTotal.toLocaleString() + '원');
-        
-        grandTotal += itemTotal;
-    });
-    
-    // 최종 합계 금액 업데이트
-    $('#grand-total-price').text(grandTotal.toLocaleString() + '원');
-}
-});
-
-
-$(document).ready(function() {
-    
     // ==========================================================
-    // 1. 상세정보 펼치기/접기 기능
+    // 2. 상세정보 펼치기/접기 기능
     // ==========================================================
     $('.toggle-detail-btn').on('click', function() {
         const $container = $('.long-detail-container');
@@ -103,30 +101,30 @@ $(document).ready(function() {
             $button.text('상세정보 펼쳐보기 ▼');
         }
         
-        // ★★★ 변경점: 펼치거나 접은 후 섹션 위치를 다시 계산
         recalculateOffsets();
     });
 
     // ==========================================================
-    // 2. Sticky 네비게이션 & Scrollspy 기능
+    // 3. Sticky 네비게이션 & Scrollspy 기능
     // ==========================================================
     const $nav = $('.product-detail-nav');
+    let recalculateOffsets = function() {}; // 함수 선언
+
     if ($nav.length) {
         
         const $navLinks = $nav.find('a');
         const $navItems = $nav.find('li');
         const $placeholder = $('.nav-placeholder');
-        let navOffsetTop = $nav.offset().top; // 초기 위치
+        let navOffsetTop = $nav.offset().top;
         const navHeight = $nav.outerHeight();
         
         let isAnimating = false;
-        let sectionOffsets = []; // 섹션 위치 정보를 담을 배열
+        let sectionOffsets = [];
 
         $placeholder.height(navHeight);
 
-        // ★★★ 변경점: 섹션 위치 계산 로직을 별도 함수로 분리
-        function recalculateOffsets() {
-            sectionOffsets = []; // 배열 초기화
+        recalculateOffsets = function() {
+            sectionOffsets = [];
             $navLinks.each(function() {
                 const targetId = $(this).attr('href');
                 const $target = $(targetId);
@@ -137,11 +135,10 @@ $(document).ready(function() {
                     });
                 }
             });
-            // 네비게이션의 원래 위치도 다시 계산 (필요 시)
-            navOffsetTop = $nav.offset().top;
-        }
+            navOffsetTop = $nav.is('.sticky') ? navOffsetTop : $nav.offset().top;
+        };
 
-        recalculateOffsets(); // 페이지 로드 시 최초 1회 계산
+        recalculateOffsets();
 
         $(window).on('scroll', function() {
             const scrollTop = $(this).scrollTop();
@@ -184,7 +181,6 @@ $(document).ready(function() {
             if ($target.length) {
                 isAnimating = true;
                 
-                // 클릭 시점의 정확한 위치를 위해 offset을 다시 계산할 수 있음
                 const scrollToPosition = $target.offset().top - navHeight;
                 
                 $navItems.removeClass('active');
@@ -197,5 +193,77 @@ $(document).ready(function() {
                 });
             }
         });
+    }
+
+    // ==========================================================
+    // 4. 리뷰 페이지네이션 기능 (수정된 코드)
+    // ==========================================================
+    const $reviewContainer = $('#detail-review');
+    const $reviewItems = $reviewContainer.find('.review-item');
+
+    if ($reviewItems.length > 0) {
+        const reviewsPerPage = 5; // 한 페이지에 보여줄 리뷰 수
+        const totalReviews = $reviewItems.length;
+        const totalPages = Math.ceil(totalReviews / reviewsPerPage);
+        let currentReviewPage = 1;
+
+        const $reviewPagination = $('.pagination-container .pagination');
+
+        function setupReviewPagination() {
+            $reviewPagination.empty();
+            $reviewPagination.append('<a href="#" class="page-link prev">이전</a>');
+            for (let i = 1; i <= totalPages; i++) {
+                $reviewPagination.append(`<a href="#" class="page-link" data-page="${i}">${i}</a>`);
+            }
+            $reviewPagination.append('<a href="#" class="page-link next">다음</a>');
+        }
+
+        function showReviewPage(page) {
+            currentReviewPage = page;
+            const startIndex = (currentReviewPage - 1) * reviewsPerPage;
+            const endIndex = startIndex + reviewsPerPage;
+
+            $reviewItems.hide();
+            $reviewItems.slice(startIndex, endIndex).show();
+
+            updateReviewPaginationLinks();
+        }
+
+        function updateReviewPaginationLinks() {
+            $reviewPagination.find('.page-link').removeClass('active');
+            $reviewPagination.find(`.page-link[data-page="${currentReviewPage}"]`).addClass('active');
+            $reviewPagination.find('.prev').toggleClass('disabled', currentReviewPage === 1);
+            $reviewPagination.find('.next').toggleClass('disabled', currentReviewPage === totalPages);
+        }
+
+        // 페이지네이션 클릭 이벤트 (list 페이지와 동일한 로직)
+        $reviewPagination.on('click', '.page-link', function(e) {
+            e.preventDefault();
+            const $this = $(this);
+
+            if ($this.hasClass('disabled') || $this.hasClass('active')) {
+                return;
+            }
+
+            let targetPage;
+            if ($this.hasClass('prev')) {
+                targetPage = currentReviewPage - 1;
+            } else if ($this.hasClass('next')) {
+                targetPage = currentReviewPage + 1;
+            } else {
+                targetPage = parseInt($this.data('page'));
+            }
+
+            if (targetPage >= 1 && targetPage <= totalPages) {
+                showReviewPage(targetPage);
+            }
+        });
+
+        // --- 리뷰 페이지네이션 최초 실행 ---
+        if (totalPages > 1) {
+             // HTML에 페이지네이션이 하드코딩 되어있으므로 이 부분은 필요 시 주석 해제
+            // setupReviewPagination();
+        }
+        showReviewPage(1); // 첫 페이지를 기본으로 보여줌
     }
 });
