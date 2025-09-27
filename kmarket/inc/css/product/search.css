@@ -1,0 +1,81 @@
+/* 검색 결과 영역 전체 스타일 */
+.search2 {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 15px;
+    margin-top: 20px;
+}
+
+/* '셔츠 검색결과' 타이틀 */
+.search2 .search-title p {
+    font-size: 16px;
+    color: #555;
+    margin: 0 0 15px 0;
+}
+
+.search2 .search-title strong {
+    font-size: 18px;
+    color: #c62828; /* 붉은 계열 색상 */
+    font-weight: bold;
+}
+
+.search2 .search-title span {
+    font-size: 14px;
+}
+
+/* 검색 폼 레이아웃 */
+.search2 .search-form {
+    display: flex; /* 요소들을 가로로 배치 */
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 15px; /* 요소 사이의 간격 */
+}
+
+/* 검색어 입력창 + 버튼 */
+.search2 .search-box {
+    display: flex;
+}
+
+.search2 .search-box input[type="text"] {
+    width: 220px;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.search2 .search-box button {
+    width: 70px;
+    height: 35px;
+    border: none;
+    background-color: #a94442; /* 톤 다운된 붉은색 */
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 상품명, 설명, 가격 등 옵션 */
+.search2 .search-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search2 .search-options label {
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.search2 .search-options input[type="checkbox"] {
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+/* 가격 범위 입력창 */
+.search2 .search-options .price-input {
+    width: 100px;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}

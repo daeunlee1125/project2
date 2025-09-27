@@ -337,15 +337,135 @@
                     </div>
 
                     <div id="detail-review" class="detail-content">
-                        <h3 style="padding: 100px 0; text-align: center; color: #aaa;">등록된 고객리뷰가 없습니다.</h3>
+                        <div class="review-header">
+                            <div class="review-tabs">
+                                <a href="#" class="active">전체(562)</a>
+                                <a href="#">포토(132)</a>
+                                <a href="#">동영상(2)</a>
+                                <a href="#">선물(11)</a>
+                            </div>
+                            <div class="review-sort">
+                                <select>
+                                    <option>추천순</option>
+                                    <option>최신순</option>
+                                    <option>평점 높은순</option>
+                                    <option>평점 낮은순</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="review-list">
+                            <div class="review-item">
+                                <div class="review-meta-top">
+                                    <div class="review-author">
+                                        <div class="rating-stars">★★★★★</div>
+                                        <div class="user-id">rif*******</div>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>늘 사용하는 제품인데 특히 환절기 보습에 좋은 것 같습니다. 스킨부터 탄탄하게 수분을 쌓아올리니 덜 건조해요 다만 바뀐 패키지보다는 이전이 더 고급스러운 것 같아 아쉬워요</p>
+                                    <div class="review-photo">
+                                        <img src="/kmarket/inc/image/review1.jpg" alt="리뷰 사진 1">
+                                    </div>
+                                    <div class="review-tags">
+                                        <span class="tag">맞춤정보</span>
+                                        <span class="tag">피부타입: 복합성</span>
+                                        <span class="tag">피부자극: 순해요</span>
+                                        <span class="tag">보습력: 촉촉해요</span>
+                                        <span class="tag">제형: 점성이 있어요</span>
+                                    </div>
+                                </div>
+                                <div class="review-meta-bottom">
+                                    <span class="date">2025.09.22</span>
+                                    <a href="#" class="report">신고/차단</a>
+                                    <div class="review-actions">
+                                        <button class="btn-helpful">👍 0</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-item">
+                                <div class="review-meta-top">
+                                    <div class="review-author">
+                                        <div class="rating-stars">★★★★☆</div>
+                                        <div class="user-id">hoi*******</div>
+                                    </div>
+                                </div>
+                                <div class="review-content">
+                                    <p>내가 먼저 써 본후 부드럽고 향도 은은해서 며느리 생일선물 했네요. 며늘이 아주 좋아하네요</p>
+                                    <div class="review-photo">
+                                        <img src="/kmarket/inc/image/review2.jpg" alt="리뷰 사진 2">
+                                    </div>
+                                </div>
+                                <div class="review-meta-bottom">
+                                    <span class="date">2025.09.25</span>
+                                    <a href="#" class="report">신고/차단</a>
+                                    <div class="review-actions">
+                                        <button class="btn-helpful">👍 0</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
                     </div>
 
                     <div class="pagination-container">
-
+                        <div class="pagination">
+                            <a href="#" class="page-link prev disabled">이전</a>
+                            <a href="#" class="page-link active">1</a>
+                            <a href="#" class="page-link">2</a>
+                            <a href="#" class="page-link">3</a>
+                            <a href="#" class="page-link">4</a>
+                            <a href="#" class="page-link">5</a>
+                            <a href="#" class="page-link next">다음</a>
+                        </div>
                     </div>
 
                     <div id="detail-exchange" class="detail-content">
-                        <h3 style="padding: 100px 0; text-align: center; color: #aaa;">교환/반품 안내 정보가 여기에 표시됩니다.</h3>
+                        <div class="exchange-info-box">
+                            <h3>교환/반품 안내</h3>
+                            <p>고객님의 단순 변심으로 인한 교환/반품은 실제 상품을 수령하신 날로부터 7일 이내에 신청 가능합니다.</p>
+
+                            <table>
+                                <colgroup>
+                                    <col style="width: 150px;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th>신청 방법</th>
+                                        <td>홈페이지 > 마이페이지 > 주문/배송 조회 > '교환/반품 신청'</td>
+                                    </tr>
+                                    <tr>
+                                        <th>반품 배송비</th>
+                                        <td>
+                                            <strong>편도 3,000원</strong> (최초 배송비 무료인 경우 6,000원 부과) <br>
+                                            상품 불량, 오배송의 경우 판매자 부담
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>보내실 곳</th>
+                                        <td>(12345) OO광역시 OO구 OO로 123, K마켓 물류센터</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>교환/반품이 불가능한 경우</h4>
+                            <ul>
+                                <li>상품 수령 후 7일을 초과한 경우</li>
+                                <li>고객님의 책임 있는 사유로 상품이 멸실 또는 훼손된 경우 (단, 상품 내용 확인을 위해 포장 등을 훼손한 경우는 제외)</li>
+                                <li>고객님의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 (예: 화장품, 식품)</li>
+                                <li>시간의 경과에 의하여 재판매가 곤란할 정도로 상품의 가치가 현저히 감소한 경우</li>
+                                <li>복제가 가능한 상품 등의 포장을 훼손한 경우 (예: CD/DVD, 게임, 도서의 경우 포장 개봉 시)</li>
+                                <li>상품의 구성품(사은품, 택, 박스 등)을 분실하였거나 훼손한 경우</li>
+                            </ul>
+
+                            <h4>환불 안내</h4>
+                            <ul>
+                                <li>반품하신 상품이 물류센터에 도착하여 검수가 완료된 후 환불 처리가 진행됩니다.</li>
+                                <li><strong>신용카드</strong>: 카드사 승인 취소까지 약 3~5 영업일이 소요됩니다.</li>
+                                <li><strong>무통장 입금/계좌이체</strong>: 고객님의 계좌로 1~2 영업일 내에 환불됩니다.</li>
+                            </ul>
+                        </div>
                     </div>
 
                     

@@ -1,0 +1,260 @@
+/* --- 1. 메인 컨텐츠 영역 (.main) --- */
+.main {
+    width: 1250px;
+    margin: 0 auto;
+}
+
+.main h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* 각 섹션 공통 스타일 */
+.checkout-section {
+    margin-bottom: 40px;
+}
+
+.checkout-section h2 {
+    font-size: 22px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #333;
+    margin-bottom: 20px;
+}
+
+/* 테이블 스타일 (받는 분 정보 등) */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #eee;
+}
+
+.info-table th, .info-table td {
+    padding: 15px 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.info-table th {
+    background-color: #f9f9f9;
+    width: 150px;
+    font-weight: 400;
+    vertical-align: top;
+}
+
+.info-table td button, .info-table td select {
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.info-table td input[type="text"], .info-table td select {
+    width: 100%;
+    max-width: 400px;
+    height: 35px;
+}
+
+/* 주문 상품 목록 스타일 */
+.order-item {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item img {
+    width: 90px;
+    height: 90px;
+    margin-right: 20px;
+}
+
+.order-item-info {
+    flex-grow: 1;
+}
+
+.order-item-info p {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+.order-item-info .brand { font-weight: bold; }
+.order-item-info .option { color: #888; }
+
+
+.order-item-price {
+    width: 150px;
+    text-align: right;
+}
+
+.order-item-price .original-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 13px;
+}
+
+.order-item-price .sale-price {
+    font-size: 16px;
+    font-weight: bold;
+}
+.order-item-price .quantity {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* 결제 방법 스타일 */
+.payment-method-options {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.payment-method-option {
+    padding: 20px;
+    cursor: pointer;
+}
+.payment-method-option:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+.payment-method-option input {
+    margin-right: 10px;
+}
+
+/* 최종 동의 및 결제 버튼 */
+.final-agreement {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-top: 30px;
+}
+.final-agreement ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+.final-agreement li {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+.final-payment-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- 2. 최종 결제 정보 사이드바 (.final-order) --- */
+.final-order {
+  position: absolute;
+  right: 0px;                      
+  width: calc((100% - 1250px) / 2); /* 화면 오른쪽 기준 */
+  height: 97%;                      /* wrapper 오른쪽 여백 */
+  padding-top: 23px;                /* 원하는 높이 */
+}
+
+/* 이 부분은 수정할 필요 없습니다. */
+.final-order .inner {
+  position: sticky;
+  width: 85%;
+  margin: 0 auto;
+  top: 23px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+}
+
+
+/* .final-order {
+    width: 300px;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    position: absolute; /* 스크롤 따라다니는 효과 
+    top: 50px; /* 상단에서의 거리 
+    right: 20px;
+}
+*/
+
+.final-order h3 {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.summary-item.sub-item {
+    padding-left: 15px;
+    color: #666;
+}
+
+.summary-item .label {
+    color: #555;
+}
+.summary-item .value {
+    font-weight: 500;
+}
+
+.summary-total {
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+.summary-total .label {
+    font-size: 16px;
+    font-weight: bold;
+}
+.summary-total .value {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+}
+
+.point-input-group {
+    display: flex;
+    margin-bottom: 15px;
+}
+.point-input-group input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+}
+.point-input-group button {
+    border: 1px solid #555;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 12px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.final-order-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.final-order p {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 15px;
+}
