@@ -1,17 +1,29 @@
 /* 쿠폰 검색 영역 */
-.search-bar {
+.search-bar .search-place {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 8px;
+  background: transparent; /* 바깥 배경 투명 */
+  border: none;
+  padding: 0;
 }
 
-.search-bar select,
-.search-bar input,
+.search-bar input {
+  flex: 1;
+  border: 1px solid #ccc;
+  height: 35px;
+  outline: none;
+  background-color: #fff;  /* 안쪽만 흰 배경 */
+  padding: 0 8px;
+}
+
+
 .search-bar button {
   height: 35px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: none;  /* 버튼은 border 없애야 겹치지 않음 */
 }
+
 
 .search-bar input {
   flex: 1;
@@ -122,4 +134,57 @@
   padding: 6px 14px;   /* 버튼 크기 줄임 */
   font-size: 13px;
   border-radius: 6px;
+}
+
+
+/* 쿠폰발급현황 전용 */
+.coupon-issue-table td a {
+  color: #4a2f73;
+  font-weight: bold;
+}
+.coupon-issue-table td a:hover {
+  text-decoration: underline;
+}
+
+.status.not-used { color: red; font-weight: bold; }
+.status.used { color: green; font-weight: bold; }
+
+.stop-btn {
+  background: #aaa;
+  border: 1px solid #888;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.stop-btn:hover {
+  background: #888;
+  color: #fff;
+}
+
+
+.sub-top {
+  margin-top: 0;     /* 위쪽 여백 제거 */
+  padding-top: 0;    /* 내부 여백 제거 */
+}
+
+.search-bar {
+  margin-top: 0;     /* 혹시 search-bar 자체에 margin 있으면 제거 */
+}
+
+
+
+.stop-btn {
+  background: linear-gradient(135deg, #a77ece, #6c3fc9); /* register-btn이랑 동일 */
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.stop-btn:hover {
+  background: linear-gradient(135deg, #8d6dbd, #5936a9); /* hover 시 조금 어둡게 */
 }
