@@ -102,16 +102,20 @@
 
         <!-- 검색 영역 -->
         <div class="main-content-top" style="border:none; margin:15px 0;">
-          <form class="search-bar">
-            <select>
-              <option>쿠폰번호</option>
-              <option>쿠폰명</option>
-              <option>발급자</option>
-            </select>
-            <input type="text" placeholder="검색어 입력">
-            <button type="submit">검색</button>
-          </form>
-        </div>
+          <div class="search-bar">
+            <form>
+              <select>
+                <option>쿠폰번호</option>
+                <option>쿠폰명</option>
+                <option>발급자</option>
+              </select>
+              <div class="search-place">
+                <input type="text" placeholder="검색어 입력">
+              </div>
+              <button type="submit">검색</button>
+            </form>
+          </div>
+
 
         <!-- 쿠폰목록 테이블 -->
         <main>
@@ -316,17 +320,8 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
   <!-- JS 공통 로직 -->
-   <script>
+  <script>
         document.addEventListener("DOMContentLoaded", () => {
         // 열기 버튼
         document.querySelectorAll(".openModalBtn").forEach(btn => {
@@ -347,6 +342,6 @@
         });
         });
 
-</script>
+    </script>
 </body>
 </html>
