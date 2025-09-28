@@ -330,7 +330,80 @@ footer {
     width: 300px;
 }
 
+
+/* --- 모달 관련 CSS --- */
+.modal {
+    display: none; /* 초기에는 숨김 */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-content input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-content .modal-buttons {
+    margin-top: 20px;
+}
+
+.modal-content .modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.modal-content .modal-buttons .confirm-btn {
+    background-color: #946ccf;
+    color: #fff;
+}
+
+.modal-content .modal-buttons .cancel-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.message {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.hidden {
+    display: none;
+}
     </style>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body class="logged-in">
     <header>
@@ -405,8 +478,7 @@ footer {
                             <tr>
                                 <th>비밀번호</th>
                                 <td>
-                                    비밀번호수정
-                                    <button type="button" onclick="window.location.href='password_confirm.html'">변경</button>
+                                    <button type="button" onclick="showPasswordModal()">변경</button>
                                 </td>
                             </tr>
                             <tr>
@@ -444,21 +516,20 @@ footer {
                                 <th>주소</th>
                                 <td>
                                     <div style="display: flex; gap: 5px; margin-bottom: 5px;">
-                                        <input type="text" placeholder="우편번호" style="width: 80px;">
+                                        <input type="text" placeholder="우편번호" style="width: 80px;" readonly>
                                         <button type="button" onclick="searchAddress()">주소검색</button>
                                     </div>
-                                    <input type="text" class="address-input" placeholder="기본주소입력" style="width: 400px;">
+                                    <input type="text" class="address-input" placeholder="기본주소입력" style="width: 400px;" readonly>
                                     <input type="text" class="address-input" placeholder="상세주소입력" style="width: 400px; margin-top: 5px;">
                                 </td>
                             </tr>
-                            <tr>
-                                <th>탈퇴</th>
-                                <td>
-                                    <button type="button" class="withdrawal-btn" onclick="confirmWithdrawal()">탈퇴하기</button>
-                                </td>
-                            </tr>
+
                         </tbody>
                     </table>
+                    <br>
+                    <td>
+                        <button type="button" class="withdrawal-btn" onclick="confirmWithdrawal()">탈퇴하기</button>
+                    </td>
                     <div class="button-group">
                         <button type="submit" class="save-btn" onclick="saveChanges()">수정하기</button>
                     </div>
@@ -493,13 +564,50 @@ footer {
             </div>
         </div>
     </footer>
+
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">현재 비밀번호 확인</h3>
+            
+            <div id="currentPasswordSection">
+                <input type="password" id="currentPassword" placeholder="현재 비밀번호">
+                <div class="message" id="currentPasswordMessage"></div>
+                <div class="modal-buttons">
+                    <button class="confirm-btn" onclick="checkCurrentPassword()">확인</button>
+                    <button class="cancel-btn" onclick="closePasswordModal()">취소</button>
+                </div>
+            </div>
+
+            <div id="newPasswordSection" class="hidden">
+                <input type="password" id="newPassword" placeholder="새 비밀번호">
+                <div class="message" id="newPasswordMessage"></div>
+                <input type="password" id="confirmNewPassword" placeholder="새 비밀번호 확인">
+                <div class="message" id="confirmNewPasswordMessage"></div>
+                <div class="modal-buttons">
+                    <button class="confirm-btn" onclick="changePassword()">변경</button>
+                    <button class="cancel-btn" onclick="closePasswordModal()">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
-        function enableEdit(field) {
-            // 이전에 작성된 함수
+        function checkEmailDomain() {
+            const emailSelect = document.getElementById('emailDomain');
+            const emailInput = document.getElementById('emailInput');
+            if (emailSelect.value === 'self') {
+                emailInput.style.display = 'inline-block';
+            } else {
+                emailInput.style.display = 'none';
+            }
         }
 
-        function searchAddress() {
-            // 이전에 작성된 함수
+        function editEmail() {
+            alert('이메일 수정 기능은 현재 개발 중입니다.');
+        }
+
+        function editPhone() {
+            alert('휴대폰 번호 수정 기능은 현재 개발 중입니다.');
         }
 
         function saveChanges() {
@@ -520,6 +628,112 @@ footer {
 
         if (isLoggedIn) {
             document.body.classList.add('logged-in');
+        }
+
+        // 카카오 주소 찾기 API 함수
+        function searchAddress() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    let fullAddress = '';
+                    let extraAddress = '';
+
+                    if (data.userSelectedType === 'R') {
+                        fullAddress = data.roadAddress;
+                    } else {
+                        fullAddress = data.jibunAddress;
+                    }
+
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddress += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddress += (extraAddress !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddress !== '') {
+                            extraAddress = ' (' + extraAddress + ')';
+                        }
+                    }
+
+                    document.querySelector('input[placeholder="우편번호"]').value = data.zonecode;
+                    document.querySelector('input[placeholder="기본주소입력"]').value = fullAddress + extraAddress;
+                    document.querySelector('input[placeholder="상세주소입력"]').value = '';
+                    document.querySelector('input[placeholder="상세주소입력"]').focus();
+                }
+            }).open();
+        }
+
+        /* --- 비밀번호 변경 모달 관련 스크립트 --- */
+        const passwordModal = document.getElementById('passwordModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const currentPasswordSection = document.getElementById('currentPasswordSection');
+        const newPasswordSection = document.getElementById('newPasswordSection');
+        const currentPasswordInput = document.getElementById('currentPassword');
+        const newPasswordInput = document.getElementById('newPassword');
+        const confirmNewPasswordInput = document.getElementById('confirmNewPassword');
+        const currentPasswordMessage = document.getElementById('currentPasswordMessage');
+        const newPasswordMessage = document.getElementById('newPasswordMessage');
+        const confirmNewPasswordMessage = document.getElementById('confirmNewPasswordMessage');
+
+        function showPasswordModal() {
+            passwordModal.style.display = 'flex';
+            modalTitle.textContent = '현재 비밀번호 확인';
+            currentPasswordSection.classList.remove('hidden');
+            newPasswordSection.classList.add('hidden');
+            // 필드 초기화
+            currentPasswordInput.value = '';
+            newPasswordInput.value = '';
+            confirmNewPasswordInput.value = '';
+            currentPasswordMessage.textContent = '';
+            newPasswordMessage.textContent = '';
+            confirmNewPasswordMessage.textContent = '';
+        }
+
+        function closePasswordModal() {
+            passwordModal.style.display = 'none';
+        }
+
+        function checkCurrentPassword() {
+            const currentPassword = currentPasswordInput.value;
+            // 실제로는 서버에 현재 비밀번호를 보내서 확인하는 로직이 필요
+            // 여기서는 임시로 "1234"라고 가정
+            const correctPassword = "1234";
+
+            if (currentPassword === correctPassword) {
+                modalTitle.textContent = '새 비밀번호 입력';
+                currentPasswordSection.classList.add('hidden');
+                newPasswordSection.classList.remove('hidden');
+            } else {
+                currentPasswordMessage.textContent = '현재 비밀번호가 일치하지 않습니다.';
+            }
+        }
+
+        function changePassword() {
+            const newPassword = newPasswordInput.value;
+            const confirmNewPassword = confirmNewPasswordInput.value;
+            let isValid = true;
+
+            // 비밀번호 유효성 검사 (예: 8자 이상)
+            if (newPassword.length < 8) {
+                newPasswordMessage.textContent = '비밀번호는 8자 이상이어야 합니다.';
+                isValid = false;
+            } else {
+                newPasswordMessage.textContent = '';
+            }
+
+            // 비밀번호 확인 일치 여부 검사
+            if (newPassword !== confirmNewPassword) {
+                confirmNewPasswordMessage.textContent = '새 비밀번호가 일치하지 않습니다.';
+                isValid = false;
+            } else {
+                confirmNewPasswordMessage.textContent = '';
+            }
+
+            if (isValid) {
+                alert('비밀번호가 성공적으로 변경되었습니다!');
+                closePasswordModal();
+                // 실제로는 서버에 새 비밀번호를 보내서 저장하는 로직이 필요
+            }
         }
     </script>
 </body>
