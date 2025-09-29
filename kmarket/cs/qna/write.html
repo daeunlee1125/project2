@@ -6,8 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../inc/css/index.css">
     <link rel="stylesheet" href="../../inc/css/cs_notice.css">
+    <link rel="stylesheet" href="../../inc/css/admin/cs_list.css">
 </head>
-<body class="faq-page">
+<body>
 <header>
     <div class="header-right login-menu">
       <a href="#">로그인</a> | 
@@ -54,36 +55,80 @@
     <h2>전체</h2>
     <p>공지사항 전체 내용입니다.</p>
 </div>
-
- <div class="register-area">
-<form>
-    <div>
-        <label>문의유형:</label>
-        <select>
-            <option>1차 선택</option>
-            <option>회원문의</option>
-            <option>주문문의</option>
+<!-- 문의등록 폼 컨테이너 -->
+<div class="inquiry-register-container">
+<!-- 문의등록 폼 -->
+<form class="inquiry-register-form">
+<!-- 문의유형 -->
+<div class="inquiry-form-row">
+<div class="inquiry-form-label">문의유형</div>
+<div class="inquiry-form-field">
+    <div class="inquiry-select-group">
+        <select name="category" class="inquiry-select">
+            <option value="">1차 선택</option>
+            <option value="register">회원가입</option>
+            <option value="login">로그인</option>
+            <option value="info">정보수정</option>
+            <option value="withdraw">탈퇴</option>
         </select>
-        <select>
-            <option>2차 선택</option>
-            <option>가입문의</option>
-            <option>결제문의</option>
+        <select name="subcategory" class="inquiry-select">
+            <option value="">2차 선택</option>
+            <option value="general">일반문의</option>
+            <option value="error">오류신고</option>
+            <option value="suggestion">개선제안</option>
         </select>
     </div>
-    <div>
-        <label>제목:</label>
-        <input type="text" placeholder="제목을 입력합니다.">
-    </div>
-    <div>
-        <label>내용:</label>
-        <textarea placeholder="내용을 입력합니다."></textarea>
-    </div>
-    <div>
-        <button type="reset" class="btn-list">취소하기</button>
-        <button type="submit" class="btn-register">등록하기</button>
-    </div>
-</form>
 </div>
+</div>
+
+<!-- 제목 -->
+<div class="inquiry-form-row">
+  <div class="inquiry-form-label">제목</div>
+    <div class="inquiry-form-field">
+        <input type="text" class="inquiry-text-input" name="title" placeholder="제목을 입력해주세요.">
+    </div>
+</div>
+
+<!-- 내용 -->
+<div class="inquiry-form-row content-row">
+  <div class="inquiry-form-label">내용</div>
+    <div class="inquiry-form-field">
+        <textarea class="inquiry-textarea" name="content" placeholder="내용을 입력해주세요."></textarea>
+      </div>
+</div>
+
+<!-- 버튼 영역 -->
+<div class="inquiry-register-buttons">
+  <button type="button" class="inquiry-btn inquiry-btn-cancel" onclick="showCancelConfirm()">취소하기</button>
+  <button type="button" class="inquiry-btn inquiry-btn-submit" onclick="showRegisterConfirm()">등록하기</button>
+  </div>
+
+  <div class="modal-overlay hidden" id="cancelConfirmModal">
+    <div class="confirm-modal">
+        <div class="modal-content">
+            <p>작성중인 내용이 사라집니다. 취소하시겠습니까?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-confirm" onclick="confirmCancel()">확인</button>
+                <button class="modal-btn" onclick="hideCancelConfirm()">취소</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- 등록 확인 모달 -->
+  <div class="modal-overlay hidden" id="registerConfirmModal">
+      <div class="confirm-modal">
+          <div class="modal-content">
+              <p>문의를 등록하시겠습니까?</p>
+              <div class="modal-buttons">
+                  <button class="modal-btn modal-btn-confirm" onclick="confirmRegister()">등록</button>
+                  <button class="modal-btn" onclick="hideRegisterConfirm()">취소</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  </form>
+  </div>
 </div>
 </div>
 </div>
@@ -121,3 +166,85 @@
 </footer>
 </body>
 </html>
+
+<script>
+// ========== 취소 관련 함수들 ==========
+function showCancelConfirm() {
+    document.getElementById('cancelConfirmModal').classList.remove('hidden');
+}
+
+function hideCancelConfirm() {
+    document.getElementById('cancelConfirmModal').classList.add('hidden');
+}
+
+function confirmCancel() {
+    hideCancelConfirm();
+    // 필요시 history.back() 또는 페이지 이동 추가
+}
+
+// ========== 등록 관련 함수들 ==========
+function showRegisterConfirm() {
+    // 폼 검증
+    const category = document.querySelector('select[name="category"]');
+    const title = document.querySelector('input[name="title"]');
+    const content = document.querySelector('textarea[name="content"]');
+    
+    if (!category?.value) {
+        alert('문의유형을 선택해주세요.');
+        category?.focus();
+        return;
+    }
+    
+    if (!title?.value.trim()) {
+        alert('제목을 입력해주세요.');
+        title?.focus();
+        return;
+    }
+    
+    if (!content?.value.trim()) {
+        alert('내용을 입력해주세요.');
+        content?.focus();
+        return;
+    }
+    
+    // 검증 통과시 모달 표시
+    document.getElementById('registerConfirmModal').classList.remove('hidden');
+}
+
+function hideRegisterConfirm() {
+    document.getElementById('registerConfirmModal').classList.add('hidden');
+}
+
+function confirmRegister() {
+    hideRegisterConfirm();
+    alert('문의가 등록되었습니다.');
+    
+    // 실제 서버 전송이 필요하다면 여기에 추가
+    // const form = document.querySelector('form');
+    // form.submit();
+}
+
+// ========== 모달 이벤트 리스너 ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // 취소 모달 배경 클릭시 닫기
+    const cancelModal = document.getElementById('cancelConfirmModal');
+    if (cancelModal) {
+        cancelModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideCancelConfirm();
+            }
+        });
+    }
+
+    // 등록 모달 배경 클릭시 닫기
+    const registerModal = document.getElementById('registerConfirmModal');
+    if (registerModal) {
+        registerModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideRegisterConfirm();
+            }
+        });
+    }
+
+});
+</script>
