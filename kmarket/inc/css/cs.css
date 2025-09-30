@@ -23,7 +23,7 @@ header {
 }
 
 .header-left {
-    padding-top: 88px;
+    padding-top: 80px;
     display: flex;
     align-items: flex-end; /* 로고 아래 정렬 */
 }
@@ -34,15 +34,16 @@ header {
 }
 
 main {
-    width: 100%;
-    max-width: 1080px;
+    width: 90%;
+    max-width: 1250px;
     margin: 0 auto;
-    padding: 50px;
+    
 }
 
  /* 메인 타이틀 */
  main > div:first-child {
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 40px;
 }
 
