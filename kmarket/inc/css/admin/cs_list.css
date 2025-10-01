@@ -119,3 +119,9 @@ background: linear-gradient(135deg, #a77ece, #6c3fc9);
     background: #0056b3;
     border-color: #0056b3;
 }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 요소 간 간격을 주고 싶다면 */
+}
