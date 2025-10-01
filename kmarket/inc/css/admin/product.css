@@ -248,9 +248,9 @@ input[type="file"] {
 
 .submit-btn-1 {
     border: 0;
-    height: 40px;
-    width: 110px;
-    margin: 10px 0;
+    height: 45px;
+    width: 120px;
+    margin: 0;
     background: linear-gradient(135deg, #a77ece, #6c3fc9);
     color: #fff;
     font-size: 15px;
@@ -259,6 +259,7 @@ input[type="file"] {
     cursor: pointer;
     transition: all 0.2s ease;
     float: right;
+    margin-bottom: 20px;
 }
 .submit-btn-1:hover {
     background: linear-gradient(135deg, #6c3fc9, #4a2f73);
@@ -274,4 +275,13 @@ input[type="file"] {
     align-items: center;
     font-size: 14px;
     color: #555;
+    margin-bottom: 20px;
 }
+
+td select {
+    height: 40px;
+    margin: 0px;
+    width: 200px;
+}
+
+

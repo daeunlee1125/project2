@@ -94,7 +94,7 @@
 
                 <!-- 버튼 영역 -->
                 <div class="button-area">
-                    <a href="#" class="btn-list" onclick="goToList()">목록</a>
+                    <a href="#" class="btn-list">목록</a>
                 </div>
                 
 
@@ -150,13 +150,6 @@
                 document.getElementById('noticeDate').textContent = data.date;
                 document.getElementById('noticeContent').innerHTML = data.content;
             }
-        }
-
-        // 목록으로 돌아가기 함수
-        function goToList() {
-            // 실제로는 공지사항 목록 페이지로 이동
-            alert('공지사항 목록으로 이동합니다.');
-            // window.location.href = 'notice-list.html';
         }
 
         // URL 파라미터로 공지사항 로드 (실제 구현 시 사용)

@@ -4,318 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지 홈</title>
-    <style>
-/* ===========================================기본 레이아웃=== */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-/* 컨테이너 전체 너비를 1060px로 조정 (250px + 810px) */
-main.container {
-    flex: 1;
-    background: #ffffff;
-    width: 1060px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-}
-
-.company.menu a.active {
-    color: orangered;
-    font-weight: 700;
-}
-
-/* ===========================================헤더 === */
-header {
-    background: white;
-    border-bottom: 1px solid #ddd;
-    padding: 20px 0;
-}
-
-.main-header {
-    max-width: 1060px; /* 컨테이너 너비와 맞춤 */
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.header-left .logo {
-    height: 40px;
-    vertical-align: middle;
-}
-.header-left span {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-.header-right a {
-    text-decoration: none;
-    color: #555;
-    font-size: 14px;
-}
-.header-right a:hover {
-    color: #000;
-}
-
-.header-right .login-menu {
-    display: flex;
-    gap: 15px;
-}
-.header-right .user-menu {
-    display: none;
-    gap: 15px;
-}
-
-body.logged-in .login-menu {
-    display: none;
-}
-body.logged-in .user-menu {
-    display: flex;
-}
-
-/* ===========================================푸터 === */
-footer {
-    background: #f9f9f9;
-    border-top: 1px solid #ddd;
-    padding: 20px 0;
-    font-size: 14px;
-    color: #555;
-    position: relative;
-    width: 100%;
-}
-
-.footer-container {
-    max-width: 1060px; /* 컨테이너 너비와 맞춤 */
-    margin: 0 auto;
-    padding: 0 20px;
-    line-height: 1.6;
-    position: relative;
-}
-.footer-sns {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-.footer-sns a {
-    margin-left: 15px;
-}
-.footer-sns img {
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-.footer-sns img:hover {
-    transform: scale(1.15);
-}
-.footer-top { margin-bottom: 10px; }
-.footer-top h2 {
-    display: inline-block;
-    font-size: 18px;
-    margin: 0;
-    margin-right: 12px;
-    font-weight: bold;
-    color: #222;
-}
-.footer-top a {
-    margin-right: 8px;
-    font-size: 13px;
-    color: #d33;
-    text-decoration: none;
-    border: 1px solid #d33;
-    padding: 3px 7px;
-    border-radius: 3px;
-}
-.footer-info { margin-bottom: 10px; font-size: 13px; color: #444; }
-.footer-info p { margin: 2px 0; }
-.footer-bottom { font-size: 13px; color: #333; }
-
-
-/* =========================================== 본문 === */
-.sidebar {
-    width: 250px;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-}
-
-.sidebar h2 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 10px;
-}
-
-.sidebar a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-radius: 5px;
-}
-
-.sidebar a:hover,
-.sidebar a.active {
-    background-color: #eee;
-}
-
-.content {
-    padding: 20px;
-    width: 810px; /* 250px + 810px = 1060px */
-}
-
-.main-content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.main-content-header .info-summary {
-    display: flex;
-    gap: 20px;
-    text-align: center;
-}
-
-.main-content-header .info-item {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.main-content-header .info-item .count {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-/* 각 섹션 */
-.section {
-    margin-bottom: 30px;
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.section-header h3 {
-    font-size: 1.1em;
-    margin: 0;
-}
-
-.section-header .more-link {
-    text-decoration: none;
-    color: #555;
-}
-
-.table-container {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left; /* 테이블 전체 패딩 왼쪽 정렬 */
-}
-
-.table-container th, .table-container td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.table-container th {
-    background-color: #f9f9f9;
-}
-
-/* 확인/신청 버튼 스타일 */
-.table-container td:last-child {
-    display: flex; /* 버튼을 세로로 정렬하기 위해 flex 사용 */
-    flex-direction: column; /* 세로 정렬 */
-    gap: 5px; /* 버튼 간격 */
-    align-items: flex-start; /* 버튼들을 왼쪽으로 정렬 */
-}
-
-.table-container td button {
-    background-color: #946ccf; /* 요청하신 보라색 */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    white-space: nowrap; /* 버튼 텍스트가 줄바꿈되지 않도록 */
-}
-
-.table-container td button:hover {
-    opacity: 0.9;
-}
-
-/* 별점 노란색 */
-.table-container td strong.star-rating {
-    color: gold; /* 별점을 노란색으로 */
-}
-
-
-/* 팝업 모달 */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    position: relative;
-}
-
-.modal .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.modal h4 {
-    margin-top: 0;
-}
-    </style>
+  <link rel="stylesheet" href="/kmarket/inc/css/my.css">
 </head>
 <body class="logged-in">
     <header>
@@ -380,7 +69,7 @@ footer {
             <div class="section">
                 <div class="section-header">
                     <h3>최근 주문내역</h3>
-                    <a href="order.html" class="more-link">더보기 &gt;</a>
+                    
                 </div>
                 <table class="table-container">
                     <thead>
@@ -416,11 +105,13 @@ footer {
                     </tr>
                     </tbody>
                 </table>
+                <br>
+                <a href="order.html" class="more-link">더보기 &gt;</a>
             </div>
             <div class="section">
                 <div class="section-header">
                     <h3>포인트적립내역</h3>
-                    <a href="point.html" class="more-link">더보기 &gt;</a>
+                    
                 </div>
                 <table class="table-container">
                     <thead>
@@ -453,10 +144,14 @@ footer {
                     </tbody>
                 </table>
             </div>
+            <br>
+            <a href="point.html" class="more-link">더보기 &gt;</a>
+
+
             <div class="section">
                 <div class="section-header">
                     <h3>상품평</h3>
-                    <a href="review.html" class="more-link">더보기 &gt;</a>
+                    
                 </div>
                 <table class="table-container">
                     <thead>
@@ -486,10 +181,13 @@ footer {
                     </tbody>
                 </table>
             </div>
+            <br>
+            <a href="review.html" class="more-link">더보기 &gt;</a>
+
             <div class="section">
                 <div class="section-header">
                     <h3>나의 문의</h3>
-                    <a href="qna.html" class="more-link">더보기 &gt;</a>
+                    
                 </div>
                 <table class="table-container">
                     <thead>
@@ -522,7 +220,12 @@ footer {
                     </tbody>
                 </table>
             </div>
+            <br>
+            <a href="qna.html" class="more-link">더보기 &gt;</a>
+
         </div>
+
+        
     </main>
     <footer class="footer">
         <div class="footer-container">

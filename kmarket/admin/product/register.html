@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="/kmarket/inc/css/admin/common.css">
     <link rel="stylesheet" href="/kmarket/inc/css/admin/product.css">
+    <script src="/kmarket/inc/js/admin/product.js"></script>
 
 </head>
 <body>
@@ -28,43 +29,50 @@
                         <li><a href="/kmarket/admin/config/version.html">버전관리</a></li>
                     </ul>
                 </li>
-                <li>
-                    <div><i class="fas fa-store"></i> 상점관리</div>
-                    <ul class="subSideBar">
-                        <li><a href="#">상점목록</a></li>
-                        <li><a href="#">매출현황</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div><i class="fas fa-users"></i> 회원관리</div>
-                    <ul class="subSideBar">
-                        <li><a href="#">회원목록</a></li>
-                        <li><a href="#">포인트관리</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div><i class="fas fa-box-open"></i> 상품관리</div>
-                    <ul class="subSideBar">
-                        <li><a href="#">상품목록</a></li>
-                        <li><a href="#">상품등록</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div><i class="fas fa-truck"></i> 주문관리</div>
-                    <ul class="subSideBar">
-                        <li><a href="#">주문현황</a></li>
-                        <li><a href="#">배송현황</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div><i class="fas fa-headset"></i> 고객센터</div>
-                    <ul class="subSideBar">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">자주묻는질문</a></li>
-                        <li><a href="#">문의하기</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <li>
+                <div><i class="fas fa-store"></i> 상점관리</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/shop/list.html">상점목록</a></li>
+                    <li><a href="/kmarket/admin/shop/sales.html">매출현황</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><i class="fas fa-users"></i> 회원관리</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/member/list.html">회원목록</a></li>
+                    <li><a href="/kmarket/admin/member/point.html">포인트관리</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><i class="fas fa-box-open"></i> 상품관리</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/product/list.html">상품목록</a></li>
+                    <li><a href="/kmarket/admin/product/register.html">상품등록</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><i class="fas fa-truck"></i> 주문관리</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/order/list.html">주문현황</a></li>
+                    <li><a href="/kmarket/admin/order/delivery.html">배송현황</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><i class="fas fa-ticket-alt"></i> 쿠폰관리</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/coupon/list.html">쿠폰목록</a></li>
+                    <li><a href="/kmarket/admin/coupon/issued.html">쿠폰발급현황</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><i class="fas fa-headset"></i> 고객센터</div>
+                <ul class="subSideBar">
+                    <li><a href="/kmarket/admin/cs/notice/list.html">공지사항</a></li>
+                    <li><a href="/kmarket/admin/cs/faq/list.html">자주묻는질문</a></li>
+                    <li><a href="/kmarket/admin/cs/qna/list.html">문의하기</a></li>
+                </ul>
+            </li>
+        </ul>
         </nav>
     </aside>
 
@@ -76,9 +84,9 @@
             
             <div class="header-nav">
                 <ul class="header-menu">
-                    <li><a href="#">홈</a></li>
+                    <li><a href="/kmarket/index.html">홈</a></li>
                     <li><a href="#">로그아웃</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="/kmarket/admin/cs/notice/list.html">고객센터</a></li>
                 </ul>
             </div>
         </div>
@@ -91,7 +99,7 @@
             <div class="main-common">
                 <div class="main-head">
                     <div>
-                        <h3>기본설정</h3>
+                        <h3>상품등록</h3>
                     </div>
                     <div class="main-head-right">
                         <a href="">HOME</a>
@@ -109,11 +117,12 @@
 
                 <main>
 
+                    <form method="post">
 
-                    <h2 class="h2-1">상품분류</h2>
-                    <div class="gray-1">필수 선택 항목입니다.</div>
-                    <form action="" method="post">
-                        <table class="table-1">
+                        <h2 class="h2-1">상품분류</h2>
+                        <div class="gray-1">필수 선택 항목입니다.</div>
+                
+                        <table class="table-1">     
                             <tr>
                                 <th>1차 분류</th>
                                 <td>
@@ -138,11 +147,11 @@
                             </tr>
 
                         </table>
-                    </form>
+                    
 
-                    <h2 class="h2-1">기본정보</h2>
-                    <div class="gray-1">필수 입력 항목입니다.</div>
-                    <form action="" method="post">
+                        <h2 class="h2-1">기본정보</h2>
+                        <div class="gray-1">필수 입력 항목입니다.</div>
+
                         <table class="table-1">
                             <tr>
                                 <th>상품명</th>
@@ -190,15 +199,14 @@
                             </tr>
                             
                         </table>
-                    </form>
 
-                    <h2 class="h2-1">상품 선택정보</h2>
-                    <div class="gray-1">
-                        상품별 선택정보(옵션) 입력입니다.<br>
-                        예시) 옵션1: 사이즈, 옵션1 항복 : XXL, XL, L, M, S (콤마로 구분)
-                    </div>
-                    <form action="" method="post">
-                        <table class="table-1">
+                        <h2 class="h2-1">상품 선택정보</h2>
+                        <div class="gray-1">
+                            상품별 선택정보(옵션) 입력입니다.<br>
+                            예시) 옵션1: 사이즈, 옵션1 항복 : XXL, XL, L, M, S (콤마로 구분)
+                        </div>
+                
+                        <table class="table-1" id="option-table">
                             <tr>
                                 <th>옵션1</th>
                                 <td><input type="text" name="#" class="input-1"></td>
@@ -219,14 +227,15 @@
                             </tr>
                             
                         </table>
-                        옵션 추가,,,,,,,
-                    </form>
-
                     
+                        <button type="button" class="submit-btn-1" id="add-option-btn">옵션 추가</button><br>
+                
 
-                    <h2 class="h2-1">상품정보 제공고시</h2>
-                    <div class="gray-1">[전자상거래에 관한 상품정보 제공에 관한 고시] 항목에 의거 등록하는 정보입니다.</div>
-                    <form action="" method="post">
+                        
+
+                        <h2 class="h2-1">상품정보 제공고시</h2>
+                        <div class="gray-1">[전자상거래에 관한 상품정보 제공에 관한 고시] 항목에 의거 등록하는 정보입니다.</div>
+                    
                         <table class="table-1">
                             <tr>
                                 <th>상품상태</th>
@@ -248,33 +257,18 @@
                                 <th>원산지</th>
                                 <td><input type="text" name="#" class="input-1" value="국내산"></td>
                             </tr>
-
-                            <tr>
-                                <td colspan="2" class="submit-1"><input type="submit" value="수정하기" class="submit-btn-1"></td>
-                            </tr>
                         </table>
+                    
+
+            
+                        <div class="yellow">
+                            전자상거래 등에서의 상품 등의 정보 제공에 관한 고시에 따라 총 35개 상품군에 대해 상품 특성 등을 양식에 따라 입력할 수 있습니다.
+                        </div>
+                        <input type="submit" class="submit-btn-1" value="등록하기">
+
                     </form>
-
-                    <h2 class="h2-1">카피라이트</h2>
-                    <div class="gray-1">푸터에 노출되는 카피라이트 정보</div>
-                    <form action="" method="post">
-                        <table class="table-1">
-                            <tr>
-                                <th>전화번호</th>
-                                <td><input type="text" name="#" class="input-1" value="Copyright©Kmarket. All rights reserved"></td>
-                            </tr>
-
-                            <tr>
-                                <td colspan="2" class="submit-1"><input type="submit" value="수정하기" class="submit-btn-1"></td>
-                            </tr>
-                        </table>
-                    </form>
-                    <div class="yellow">
-                        전자상거래 등에서의 상품 등의 정보 제공에 관한 고시에 따라 총 35개 상품군에 대해 상품 특성 등을 양식에 따라 입력할 수 있습니다.
-                    </div>
-
-
                 </main>
+                
  
             </div>
         </div>
@@ -289,7 +283,7 @@
     </footer>
 
     
-
+    
 
 </body>
 </html>
